@@ -111,6 +111,8 @@ python3 agents/builder/tests/integration_spark.py \
 
 仓库包含项目介绍、架构图、五个 Skill、自研 Builder Agent、最小网页、部署说明、验证记录与许可证。
 
+黑客松征文：[一个女孩想要一只会飞的猫，我们决定陪她做出来](docs/hackathon-story.md)。
+
 | 评分项 | 权重 | 项目对应内容 |
 | --- | --- | --- |
 | 实用性、落地价值与创新性 | 25% | 青少年创作、导师课程、故事与实验双模式 |

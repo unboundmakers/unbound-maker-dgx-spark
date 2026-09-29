@@ -10,7 +10,7 @@
 
 Unbound Maker 将角色构建、表情、场景、优化和仿真封装成五个 Skill，由 Builder Agent 组织执行。运行底座是 NVIDIA DGX Spark、Isaac Sim / PhysX 和 OpenUSD。当前支持已有飞行猫模板及三个场景，逐步接入团队的创作引导前端。
 
-[参赛说明](SUBMISSION.md) · [Agent 使用与 API](agents/builder/README.md) · [Spark 部署](docs/builder-agent-spark.md) · [验证记录](verification/builder-agent-ledger.md)
+[黑客松征文：一个女孩想要一只会飞的猫](docs/hackathon-story.md) · [参赛说明](SUBMISSION.md) · [Agent 使用与 API](agents/builder/README.md) · [Spark 部署](docs/builder-agent-spark.md) · [验证记录](verification/builder-agent-ledger.md)
 
 > 版本：0.1.0 开发版。五个 Skill 已完成封装和模块测试，结构化构建与真实 Isaac 仿真通过。Qwen3.6-35B-A3B（Q4_K_M）完成 Spark 独立 Agent 集成和推力修改复用测试；Qwen2.5-7B 完成 CLI 与最小网页链路测试。见 [Qwen3.6](verification/builder-agent/qwen36-acceptance.md)、[Qwen2.5](verification/builder-agent/qwen25-acceptance.md)和[网页验收](verification/builder-agent/frontend-acceptance.md)。以上为团队实测记录。
 

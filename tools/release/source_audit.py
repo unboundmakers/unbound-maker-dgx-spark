@@ -7,6 +7,10 @@ import re
 import zipfile
 
 IMAGE_ALLOWLIST = {
+    'docs/essay-images/recruitment.png',
+    'docs/essay-images/flying-cat-drawing.jpg',
+    'docs/essay-images/meadow-simulation.jpg',
+    'docs/essay-images/moon-simulation.jpg',
     'docs/architecture.png',
     'verification/builder-agent/preview.png',
     'verification/builder-agent/structured-moon-preview.png',
