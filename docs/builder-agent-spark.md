@@ -1,14 +1,14 @@
 # Builder Agent on DGX Spark
 
-2026-09-29 working deployment. Qwen3.6-35B-A3B Q4_K_M independent Agent integration passed. Earlier Qwen2.5-7B real Agent and minimal browser acceptance passed. See [Qwen3.6](../verification/builder-agent/qwen36-acceptance.md) and [Qwen2.5](../verification/builder-agent/qwen25-acceptance.md).
+2026-09-29 working deployment. Qwen3.6-35B-A3B Q4_K_M with `num_batch=128` passed the browser-to-Agent-to-Isaac workflow and a browser force-only follow-up. See [Qwen3.6 browser acceptance](../verification/builder-agent/frontend-qwen36-acceptance.md).
 
 ## Runtime Note
 
 Repeated prompt evaluation with Qwen3.6 on this Ollama/Spark combination encountered
 a CUDA illegal memory access in the quantized matrix kernel, including after a
-cold load. The same Runner prompts returned with `num_batch=128`. The optional
-`agents/builder/Qwen36-Spark.Modelfile` registers an alias using the same weights;
-it is a deployment workaround observed in prompt tests, not a stability guarantee.
+cold load. With `num_batch=128`, the subsequent browser-to-Agent-to-Isaac test and
+force-only rerun passed without this error. `agents/builder/Qwen36-Spark.Modelfile`
+registers the tested alias `qwen3.6:35b-a3b-spark128` using the same weights.
 Use bounded jobs and inspect actual reports on service errors. Never report a
 model service error as a successful build or silently substitute another model.
 
@@ -67,7 +67,7 @@ overwrite system Ollama. Runtime limits depend on how the operator started the p
 
 See `agents/builder/README.md` for API contracts and SSH forwarding. The frontend team keeps
 its conversation and form UI, sends supported design fields, polls `job_id`, and fetches
-registered preview/report/scene ZIP artifacts. The minimal browser path is tested with Qwen2.5; the larger concept frontend remains a separate integration.
+registered preview/report/scene ZIP artifacts. The minimal browser path is tested with Qwen3.6 (`spark128`) and previously Qwen2.5; the larger concept frontend remains a separate integration.
 
 The team must still integrate the UI, test a real human keyboard session, review asset licenses
 before distribution, and prepare competition documentation/video. Team self-verification is

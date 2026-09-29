@@ -19,7 +19,7 @@
 
 ## 真实运行
 
-- Qwen3.6-35B-A3B：真实 Agent 集成通过；蓝色角色、月球、2kg、7N、10 秒；结构化修改为 11N 后复用前四阶段并启动新 Runner。[证据](../builder-agent/qwen36-acceptance.md)
+- Qwen3.6-35B-A3B：`spark128` 网页端到端通过；蓝色角色、月球、2kg、7N、10 秒；网页修改为 11N 后复用前四阶段并启动新 Runner。两次均返回真实截图和报告，各 11 项检查通过。[证据](../builder-agent/frontend-qwen36-acceptance.md)
 - Qwen2.5-7B：最小网页提交、进度、实际截图、报告下载、推力重跑、鉴权拒绝和移动端布局检查通过。[证据](../builder-agent/frontend-acceptance.md)
 - 取消与清理：真实 Isaac 作业启动后取消，检测到的剩余 Isaac 进程为空。[证据](../builder-agent/cancel-3722c4ba551449db8e2c8675e888de28.json)
 - Personality：默认隐藏尖牙、手动生气时显示、重置恢复；独立头部层级、已有身体帧及单一骨骼写入者检查通过。

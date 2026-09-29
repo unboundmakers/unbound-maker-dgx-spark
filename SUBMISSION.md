@@ -15,7 +15,7 @@ AI 造物关注青少年怎样把自己的想法做成作品。孩子描述机�
 
 DGX Spark 承担本地执行。OpenUSD 组织角色、材质和场景依赖；Isaac Sim / PhysX 负责渲染与外力、重力实验。角色和场景按版本保存，修改推力可以复用已有资产，修改外观则重建相应部分。任务支持取消、超时和结果校验，模型提出的动作必须通过程序检查，并产出真实文件和报告。
 
-当前实现基于授权飞行猫模板与草地、太空、月球三个预置场景。Qwen3.6-35B-A3B 已在 Spark 上完成真实 Agent 集成：生成受支持的设计参数，组织五个 Skill，复用经校验的构建产物并启动新的仿真。推力从 7N 改为 11N 的第二次运行通过结构化参数路径完成，前四个构建阶段复用，Runner 返回新的截图和报告。
+当前实现基于授权飞行猫模板与草地、太空、月球三个预置场景。Qwen3.6-35B-A3B 已在 Spark 上完成网页端到端验证：从中文需求生成受支持的设计参数，组织五个 Skill，启动真实 Isaac 仿真，并在网页返回截图和报告。网页将推力从 7N 改为 11N 后，前四个构建阶段复用，Runner 重新仿真。两次运行各通过 11 项检查。
 
 平台提供一个最小构建网页，支持中文需求、任务进度、取消、结果展示及报告下载。它通过本机 API 与 SSH 隧道连接 Spark。角色的步态和表情属于视觉动画；实验中的移动由 PhysX 外力控制产生。这样的分层让孩子先看到自己的角色活动起来，再通过明确的参数对照理解作品的运行方式。
 
@@ -23,7 +23,7 @@ DGX Spark 承担本地执行。OpenUSD 组织角色、材质和场景依赖；Is
 
 | 创新点 | 工程实现 | 实测依据 |
 | --- | --- | --- |
-| 创作需求落到可执行工具 | 自研 Builder Agent 编排五个 CLI Skill，校验参数与真实产物 | Qwen3.6 独立 Agent 集成通过 |
+| 创作需求落到可执行工具 | 自研 Builder Agent 编排五个 CLI Skill，校验参数与真实产物 | Qwen3.6 网页到真实仿真及参数重跑通过 |
 | 故事与实验共用角色 | 草地、太阳系故事；月球场景切换地球、月球、无重力 | 三场景运行与重力对照 |
 | OpenUSD 资产复用 | 引用、payload、PointInstancer、LOD variants、session layer 与独立覆盖层 | 依赖、结构与碰撞保护检查 |
 | 参数修改不重复整套构建 | 不可变设计版本、依赖哈希缓存；Runner 每次新运行 | 7N 改 11N 时前四阶段复用 |
@@ -59,7 +59,7 @@ Agent 使用 Python 标准库和 SQLite 实现队列、不可变版本及事件�
 | NVIDIA Isaac Sim 5.1 / PhysX | RTX 场景渲染、碰撞、重力与外力 |
 | OpenUSD | 骨骼、材质、引用、payload、实例化、LOD 与覆盖层 |
 | Ollama 0.34.4 | 独立安装的本地推理服务 |
-| Qwen3.6-35B-A3B / Q4_K_M | 本次目标模型；独立 Agent 集成已实测 |
+| Qwen3.6-35B-A3B / Q4_K_M | 本次使用模型；`num_batch=128` 网页端到端与推力重跑已实测 |
 | Qwen2.5-7B / Q4_K_M | 早期 CLI 与网页链路实测 |
 | Python / SQLite / HTML / CSS / JavaScript | Harness、Skill、存储、本机 API 与最小前端 |
 
@@ -82,7 +82,7 @@ Mac 与 Spark 分别执行以下模块回归，每个平台共 92 项通过：
 
 真实链路验证：
 
-- Qwen3.6：独立 Agent 集成、月球 10 秒运行及结构化推力修改复用。[记录](verification/builder-agent/qwen36-acceptance.md)
+- Qwen3.6：网页中文需求、五个 Skill、真实截图、报告下载，以及 7N 改为 11N 的参数重跑；两次月球 10 秒仿真均通过 11 项检查。[记录](verification/builder-agent/frontend-qwen36-acceptance.md)
 - Qwen2.5：中文需求到五个 Skill、真实截图、报告下载及参数重跑的浏览器链路。[记录](verification/builder-agent/frontend-acceptance.md)
 - 真实取消：观察到 Isaac 运行后取消，检测到的剩余 Isaac 进程为空。[记录](verification/builder-agent/cancel-3722c4ba551449db8e2c8675e888de28.json)
 - 重力对照：同为 2kg、7N，月球与地球条件在模拟时间 3.5–5 秒的最大角色 Z 分别为 2.933m 和 0.035m；地球组产生推力不足提示。[记录](verification/simulation-runner-0.1.0.md)

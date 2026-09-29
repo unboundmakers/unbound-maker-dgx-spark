@@ -14,9 +14,9 @@ Unbound Maker 将角色构建、表情、场景、优化和仿真封装成五个
 
 [黑客松征文：一个女孩想要一只会飞的猫](docs/hackathon-story.md) · [参赛说明](SUBMISSION.md) · [Agent 使用与 API](agents/builder/README.md) · [Spark 部署](docs/builder-agent-spark.md) · [验证记录](verification/builder-agent-ledger.md)
 
-> 版本：0.1.0 开发版。五个 Skill 已完成封装和模块测试，结构化构建与真实 Isaac 仿真通过。Qwen3.6-35B-A3B（Q4_K_M）完成 Spark 独立 Agent 集成和推力修改复用测试；Qwen2.5-7B 完成 CLI 与最小网页链路测试。见 [Qwen3.6](verification/builder-agent/qwen36-acceptance.md)、[Qwen2.5](verification/builder-agent/qwen25-acceptance.md)和[网页验收](verification/builder-agent/frontend-acceptance.md)。以上为团队实测记录。
+> 版本：0.1.0 开发版。五个 Skill 已完成封装和模块测试。Qwen3.6 已跑通网页需求 → 五个 Skill → Isaac Sim → 截图与报告，以及修改推力后的重跑；两次各通过 11 项检查。[网页验收](verification/builder-agent/frontend-qwen36-acceptance.md)。
 
-> 本次提交以 Qwen3.6 为目标模型。可选 Spark 推理配置见 [Qwen36-Spark.Modelfile](agents/builder/Qwen36-Spark.Modelfile)，实际测试范围见[团队验证记录](verification/release-20260929/README.md)。角色和场景原文件独立管理，见[资产准备清单](docs/asset-distribution.md)。
+> 本次网页实测使用 Qwen3.6 的 Spark 配置，见 [Qwen36-Spark.Modelfile](agents/builder/Qwen36-Spark.Modelfile)和[团队验证记录](verification/release-20260929/README.md)。角色和场景原文件独立管理，见[资产准备清单](docs/asset-distribution.md)。
 
 ![飞行猫在 Isaac Sim 户外草地场景中的运行画面](docs/essay-images/meadow-simulation.jpg)
 
@@ -108,7 +108,7 @@ Asset Builder 的输出是视觉资产，Runner 才加入当前使用的力控�
 | Scene Builder | Mac / Spark 各 10 项测试通过，三个场景构建成功 |
 | Scene Optimizer | Mac / Spark 各 13 项测试通过，保护对象及依赖检查通过 |
 | Simulation Runner | Mac / Spark 各 13 项测试通过；三个场景及月球、地球重力对照完成真实 Isaac 自动运行 |
-| Builder Agent | Mac / Spark 各 26 项回归通过；Qwen3.6 独立 Agent 集成、Qwen2.5 网页链路、推力修改复用及真实取消清理测试 |
+| Builder Agent | Mac / Spark 各 26 项回归通过；Qwen3.6 网页到真实仿真、截图与报告返回、推力修改复用及真实取消清理测试 |
 
 详细范围见 [Asset](verification/asset-builder-0.1.0.md)、[Personality](verification/personality-builder-0.1.0.md)、[Scene](verification/scene-builder-0.1.0.md)、[Optimizer](verification/scene-optimizer-0.1.0.md)、[Runner](verification/simulation-runner-0.1.0.md) 和 [Builder 执行记录](verification/builder-agent-ledger.md)。测试结论对应记录中的版本、模型与环境。
 
@@ -134,7 +134,7 @@ python3 agents/builder/tests/integration_spark.py \
   --mode structured
 ```
 
-Qwen3.6-35B-A3B（`qwen3.6:35b-a3b`，Ollama Q4_K_M，不是 FP8）已完成下载和独立 Agent 集成：蓝色角色、月球、2kg、7N、10 秒自动仿真，以及改成 11N 后复用前四个构建阶段。已有缓存被复用，Runner 真实新运行；这不代表全部资产重新生成，也不是普遍成功率。[Qwen3.6 验收范围](verification/builder-agent/qwen36-acceptance.md)。Qwen2.5 已验证的网页演示保持不变。安装方式见 [Agent README](agents/builder/README.md)；运行时明确配置实际模型。
+使用 Qwen3.6-35B-A3B 的 Ollama Q4_K_M 版本，配置为 `qwen3.6:35b-a3b-spark128`（`num_batch=128`）。已从网页完成月球 10 秒仿真，并将推力从 7N 改为 11N 重跑；前四阶段复用，仿真重新执行。[验收记录](verification/builder-agent/frontend-qwen36-acceptance.md) · [安装与运行](agents/builder/README.md)。
 
 前端可通过本机 HTTP API 提交任务、轮询进度和领取截图、报告及场景 ZIP。API 仅监听 `127.0.0.1`，要求 bearer token；Mac 使用 SSH 隧道连接。没有部署公网访问或网页实时串流。[接口及 CLI 文档](agents/builder/README.md#frontend-api)列出了调用方法。
 
@@ -147,7 +147,7 @@ Qwen3.6-35B-A3B（`qwen3.6:35b-a3b`，Ollama Q4_K_M，不是 FP8）已完成下�
 | OpenUSD | 角色、骨骼、材质、场景组合、实例化、payload、variants 和 session layer |
 | Python / SQLite | 自研 Harness、持久化队列、版本与缓存、固定 Skill CLI、本机 API |
 | Ollama / Qwen2.5-7B | 本地真实模型驱动五个 Skill 与 Isaac 验证已实测一次，含一次格式修复 |
-| Qwen3.6-35B-A3B / Q4_K_M | Spark 独立 Agent 集成及推力修改复用通过 |
+| Qwen3.6-35B-A3B / Q4_K_M | Spark 网页到 Agent、五个 Skill、Isaac 仿真与结果返回通过，支持已验证的推力修改重跑 |
 
 ## 项目目录
 

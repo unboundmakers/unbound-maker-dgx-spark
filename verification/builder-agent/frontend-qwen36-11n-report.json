@@ -1,0 +1,50 @@
+{
+  "job_id": "6ab7c0c06e7a41d48893c142e0b9b762",
+  "request_sha256": "f8999bca0d9ac7c87c7a3bb80e9d77e62e609a1c582f1d9afe986da842d62896",
+  "scene_id": "moon",
+  "request": {
+    "schema_version": 1,
+    "scene_id": "moon",
+    "mode": "experiment",
+    "run_kind": "smoke",
+    "headless": true,
+    "environment": "moon",
+    "gravity_m_s2": 1.62,
+    "mass_kg": 2.0,
+    "thrust_n": 11.0,
+    "duration_s": 10,
+    "session_seconds": 60.0,
+    "speed_m_s": 2.5,
+    "warnings": []
+  },
+  "trained_policy": false,
+  "keyboard_pipeline_tested": false,
+  "status": "succeeded",
+  "checks": {
+    "finite_trajectory": true,
+    "force_callback_ran": true,
+    "reset_returns_to_spawn": true,
+    "gravity_matches_request": true,
+    "source_root_layer_unchanged": true,
+    "preview_image_written": true,
+    "previous_camera_transform_unchanged": true,
+    "physics_duration_matches_request": true,
+    "horizontal_input_moves_actor": true,
+    "lift_moves_actor_up": true,
+    "spawn_contacts_ground": true
+  },
+  "simulated_s": 10.0,
+  "physics_ticks": 1200,
+  "lod_changes": 0,
+  "final_before_reset": [
+    3.7505977153778076,
+    3.7499988079071045,
+    3.0787346363067627
+  ],
+  "runtime_wall_s": 25.688,
+  "gravity_m_s2": 1.62,
+  "scope": "Capsule force control and visual skeleton animation; no articulated balance or aerodynamic model.",
+  "gpu_memory": "unmeasured",
+  "all_rocks_contact_tested": false,
+  "manual_ui_tested": false
+}

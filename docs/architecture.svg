@@ -48,7 +48,7 @@
   <text x="1148" y="454" class="body">Qwen2.5-7B</text>
   <text x="1148" y="483" class="small muted">网页 + Agent 链路已实测</text>
   <text x="1148" y="528" class="body">Qwen3.6-35B-A3B</text>
-  <text x="1148" y="557" class="small muted">独立 Agent 集成与推力复用通过</text>
+  <text x="1148" y="557" class="small muted">网页到仿真及参数重跑通过</text>
   <path d="M1120 478H1090" class="line"/>
   <path d="M580 592V669H216V679" class="line"/>
   <text x="80" y="655" class="label muted">03  五个可执行 SKILL · 按依赖顺序构建</text>

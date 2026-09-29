@@ -31,12 +31,10 @@ edit all absolute paths and installed USD locations. Do not guess versions.
 
 ## Local Model
 
-This submission targets Qwen3.6-35B-A3B (`qwen3.6:35b-a3b`); independent Agent
-integration and a structured force-only follow-up passed. Earlier CLI and browser
-evidence uses `qwen2.5:7b`. Qwen3.6 browser acceptance remains pending.
-Repeated prompt evaluation exposed a CUDA error. The optional
-`Qwen36-Spark.Modelfile` retains the same weights with `num_batch=128`; six Runner
-prompts returned under this configuration, but its full Agent acceptance is pending.
+Qwen3.6-35B-A3B (`qwen3.6:35b-a3b-spark128`) passed the real browser-to-Agent-to-Isaac
+workflow and a browser force-only follow-up, with 11 Runner checks passing per run.
+`Qwen36-Spark.Modelfile` retains the Q4_K_M weights with `num_batch=128`.
+See [browser acceptance](../../verification/builder-agent/frontend-qwen36-acceptance.md).
 Register it with `ollama create qwen3.6:35b-a3b-spark128 -f Qwen36-Spark.Modelfile`
 and explicitly set that name in your operator config if testing this workaround.
 The system's Ollama 0.20.2 rejected that model. A separate official ARM64 Ollama 0.34.4
@@ -151,7 +149,7 @@ python3 tests/integration_cancel.py --config operator.spark.example.json
 Integration commands start real bounded GPU work. They require free Isaac/GPU capacity and
 do not run automatically with unit tests. Results live under `root` (default `builder-state`).
 Inspect `jobs/JOB_ID/error.json`, stage logs, manifests and Runner reports when failures occur.
-See project `verification/builder-agent-ledger.md` for current verified vs pending status.
+See project `verification/builder-agent-ledger.md` for completed verification records.
 These are team tests, not NVIDIA official certification or a security audit.
 
 Opt-in browser acceptance (requires the service, SSH tunnel, Playwright and Chrome):
@@ -161,6 +159,8 @@ UNBOUND_TEST_TOKEN_FILE=/private/path/access-token node tests/frontend_spark.cjs
 ```
 
 Set `PLAYWRIGHT_MODULE` to an installed package path if it is not in Node's search path.
-The test uses Qwen2.5 and the optional upstream preview, performs real GPU work, and
-writes private evidence under `artifacts/`. Do not publish its browser profile or token.
-See [browser acceptance](../../verification/builder-agent/frontend-acceptance.md).
+For the verified Qwen3.6 configuration, set `UNBOUND_TEST_MODEL=qwen3.6:35b-a3b-spark128`
+and `UNBOUND_TEST_CONCEPT=0`; set `UNBOUND_TEST_URL` to the local tunnel address.
+The service operator config must select the same model. The test performs real GPU work
+and writes private evidence under `artifacts/`. Do not publish its browser profile or token.
+See [Qwen3.6 browser acceptance](../../verification/builder-agent/frontend-qwen36-acceptance.md).

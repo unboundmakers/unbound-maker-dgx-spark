@@ -25,5 +25,6 @@ natural-language planning test. Source summary: [qwen36-result.json](qwen36-resu
 ## Scope
 
 This is one bounded integration case, not an aggregate model success rate.
-The demonstrated browser case uses Qwen2.5; this report describes Qwen3.6 model
-orchestration of the template-based construction and actual simulator run.
+This earlier record covers independent Agent integration. The subsequent Qwen3.6
+`spark128` browser-to-simulator test and parameter rerun also passed:
+[browser acceptance](frontend-qwen36-acceptance.md).
