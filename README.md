@@ -16,9 +16,7 @@ Unbound Maker 将角色构建、表情、场景、优化和仿真封装成五个
 
 > 本次提交以 Qwen3.6 为目标模型。可选 Spark 推理配置见 [Qwen36-Spark.Modelfile](agents/builder/Qwen36-Spark.Modelfile)，实际测试范围见[团队验证记录](verification/release-20260929/README.md)。角色和场景原文件独立管理，见[资产准备清单](docs/asset-distribution.md)。
 
-![蓝色飞行猫在月球场景中的真实 Isaac Sim 运行截图](verification/builder-agent/structured-moon-preview.png)
-
-上图来自本版 Builder 的结构化链路实测，并非概念渲染图，也不作为真实模型调用成功的证据。
+![飞行猫在 Isaac Sim 户外草地场景中的运行画面](docs/essay-images/meadow-simulation.jpg)
 
 ## 从孩子的想法开始
 
