@@ -1,0 +1,4 @@
+interface:
+  display_name: "Unbound Maker Simulation Runner"
+  short_description: "Run bounded Isaac previews with controls and test evidence"
+  default_prompt: "Use $unbound-maker-simulation-runner to prepare and test this scene in a bounded Isaac Sim job without changing the original."

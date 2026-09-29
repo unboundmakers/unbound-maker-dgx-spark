@@ -1,0 +1,656 @@
+{
+  "schema_version": 1,
+  "version": "meadow-v0.3-snapshot-20260929",
+  "scenes": {
+    "meadow": {
+      "spawn": [
+        0,
+        0,
+        0
+      ],
+      "camera_eye": [
+        6,
+        -9,
+        4
+      ],
+      "camera_target": [
+        0,
+        0,
+        0.8
+      ],
+      "gravity_m_s2": 9.81,
+      "components": [
+        {
+          "prim": "/World/Environment",
+          "entry": "scene.usda",
+          "source_prim": "/World"
+        }
+      ],
+      "runtime": {
+        "mode": "story",
+        "gravity_m_s2": 9.81,
+        "dynamic_lod_requires_runner": true
+      },
+      "renderer_settings": {
+        "/rtx/background/source/type": 2,
+        "/rtx/background/source/color": [
+          0.34,
+          0.64,
+          0.85
+        ],
+        "/rtx/fog/enabled": true,
+        "/rtx/fog/fogColor": [
+          0.55,
+          0.72,
+          0.77
+        ],
+        "/rtx/fog/fogColorIntensity": 1.0,
+        "/rtx/fog/fogHeightDensity": 0.0,
+        "/rtx/fog/fogStartDist": 22.0,
+        "/rtx/fog/fogEndDist": 200.0,
+        "/rtx/fog/fogDistanceDensity": 0.35
+      },
+      "notes": [
+        "Authored meadow-v0.3 terrain, rocks and trees; two NVIDIA grass meshes and adapted NVIDIA gravel maps.",
+        "Poly Haven meadow_2k.exr sky; preserve source credits. Assets are not collectively CC0.",
+        "Keep authored grass detail variants; camera-driven switching belongs to Simulation Runner."
+      ],
+      "runtime_mdl_dependencies": [],
+      "files": [
+        {
+          "path": "README.md",
+          "sha256": "b8794175e93be9a3ed4554ca4f467c4370a3b1e582e0e6296457c6eb51a42cad",
+          "bytes": 7566
+        },
+        {
+          "path": "assets/GRAVEL-SOURCE.md",
+          "sha256": "134d82967da716012d05b87c9ac1c4179846687e05ac2b09814c00106fb9cf11",
+          "bytes": 997
+        },
+        {
+          "path": "assets/library.usdc",
+          "sha256": "ee1d9b46af489fb57f21546dce13002db5c32a3b1004abf41f65f2c0413df78f",
+          "bytes": 265097
+        },
+        {
+          "path": "assets/meadow_2k.exr",
+          "sha256": "cab389b5d77327c21e92d3430a7ae4ad047719a7db763363acc8e2379e0faaf0",
+          "bytes": 7237177
+        },
+        {
+          "path": "assets/textures/gravel-ground-0-base.png",
+          "sha256": "dc10595de46bb0ed6a82ffc1b373d11df005b21352bb1c4d6fd6d12097e107f0",
+          "bytes": 908380
+        },
+        {
+          "path": "assets/textures/gravel-ground-0-normal.png",
+          "sha256": "24438d83ea7e35cb6d7b0d1ccaa1ee0866880896decd5fb9ada9efe7b03035e2",
+          "bytes": 952240
+        },
+        {
+          "path": "assets/textures/gravel-ground-0-rough.png",
+          "sha256": "11fa9a09c5bae8c12fcbdfb56b20d0fd1fc3bc7bc66c6a1cc43ca687bd9ffe1a",
+          "bytes": 347202
+        },
+        {
+          "path": "assets/textures/gravel-ground-1-base.png",
+          "sha256": "135f4897b4d20c712acdeb78dce378c3ee1ec7fed15c189138bfb873f6cc0b13",
+          "bytes": 971483
+        },
+        {
+          "path": "assets/textures/gravel-ground-1-normal.png",
+          "sha256": "24438d83ea7e35cb6d7b0d1ccaa1ee0866880896decd5fb9ada9efe7b03035e2",
+          "bytes": 952240
+        },
+        {
+          "path": "assets/textures/gravel-ground-1-rough.png",
+          "sha256": "11fa9a09c5bae8c12fcbdfb56b20d0fd1fc3bc7bc66c6a1cc43ca687bd9ffe1a",
+          "bytes": 347202
+        },
+        {
+          "path": "assets/textures/gravel-ground-2-base.png",
+          "sha256": "3e30ce8eb44a1842d0b709352c3fe4aeb0769fb974d0ee28f6821e810858bdcc",
+          "bytes": 962736
+        },
+        {
+          "path": "assets/textures/gravel-ground-2-normal.png",
+          "sha256": "24438d83ea7e35cb6d7b0d1ccaa1ee0866880896decd5fb9ada9efe7b03035e2",
+          "bytes": 952240
+        },
+        {
+          "path": "assets/textures/gravel-ground-2-rough.png",
+          "sha256": "11fa9a09c5bae8c12fcbdfb56b20d0fd1fc3bc7bc66c6a1cc43ca687bd9ffe1a",
+          "bytes": 347202
+        },
+        {
+          "path": "assets/textures/rock-base.png",
+          "sha256": "89edf84f438ed266e5fcd935c0f7f040e1c2f8d9851821fae93151822b9f762c",
+          "bytes": 556244
+        },
+        {
+          "path": "assets/textures/rock-normal.png",
+          "sha256": "4a7047e09724c44759ead82902ced7f846300dc7dd89559864d2aff9f457f610",
+          "bytes": 827990
+        },
+        {
+          "path": "assets/textures/rock-rough.png",
+          "sha256": "2b84ab4f18cfefa073ddebd5de5cb9bfe9800b0f32885d2652080e3c030e2900",
+          "bytes": 194618
+        },
+        {
+          "path": "layers/distant.usda",
+          "sha256": "7f06cc484e419432ffacaf4a8a2dd5a938398337216beb754934d72b462d5899",
+          "bytes": 198932
+        },
+        {
+          "path": "layers/landscape.usda",
+          "sha256": "32f198899861c4b92f48b3add50f713c565ae2b5d31126c39ee629fb82188270",
+          "bytes": 18565905
+        },
+        {
+          "path": "scene.usda",
+          "sha256": "f12b5e6ae172f3fa0a18c09b9664b8060d69d389b7e315bcaa694683384fb2d1",
+          "bytes": 1355
+        }
+      ]
+    },
+    "space": {
+      "spawn": [
+        0,
+        0,
+        5
+      ],
+      "camera_eye": [
+        6,
+        -9,
+        9
+      ],
+      "camera_target": [
+        0,
+        8,
+        7
+      ],
+      "gravity_m_s2": 0.0,
+      "components": [
+        {
+          "prim": "/World/Environment",
+          "entry": "assets/space/space.usdc",
+          "source_prim": "/Space"
+        }
+      ],
+      "runtime": {
+        "mode": "story",
+        "gravity_m_s2": 0.0,
+        "dynamic_lod_requires_runner": true
+      },
+      "renderer_settings": {
+        "/rtx/background/source/type": 2,
+        "/rtx/background/source/color": [
+          0.001,
+          0.002,
+          0.008
+        ],
+        "/rtx/fog/enabled": false
+      },
+      "notes": [
+        "NASA-derived planetary materials; exact source and adaptation records are retained.",
+        "Fictional compressed planetary playground: sizes/distances are not a true-scale solar system or orbital simulation."
+      ],
+      "runtime_mdl_dependencies": [],
+      "files": [
+        {
+          "path": "SOLAR-UPGRADE-20260929.md",
+          "sha256": "509ef8a55860b0263e477cd09c0b1100c54c082b2a8f411fecb6331bc8dd4459",
+          "bytes": 3126
+        },
+        {
+          "path": "assets/space/nasa/earth-1k.jpg",
+          "sha256": "8d0ef0077471b00fc39c4aba568d3894082b957c057e04cddd97b08d2de9e584",
+          "bytes": 275291
+        },
+        {
+          "path": "assets/space/nasa/earth-4k.jpg",
+          "sha256": "f9b912703403d9a79e190ddc1757782eddc783f4db0cb2fe220310c154af4fb4",
+          "bytes": 2706328
+        },
+        {
+          "path": "assets/space/nasa/earth-roughness.png",
+          "sha256": "a36fcc7ec9a1a94239dbf3dc7aaceea50018faddb6c63210fb82167b663af176",
+          "bytes": 30362
+        },
+        {
+          "path": "assets/space/nasa/jupiter-1k.jpg",
+          "sha256": "b609a844734e02d1a366dc9ec6a7021bf321d62fbb6413ba19a05590c7a22915",
+          "bytes": 179595
+        },
+        {
+          "path": "assets/space/nasa/jupiter-4k.jpg",
+          "sha256": "453bc0e953897ff1757bf216675c6df61a52099e8129fccdb5896db69441226a",
+          "bytes": 2082891
+        },
+        {
+          "path": "assets/space/nasa/mars-1k.jpg",
+          "sha256": "05fb1afc4430a871f9341d036230b6a2905869b2f7a7c599ed613b1f762aac25",
+          "bytes": 190466
+        },
+        {
+          "path": "assets/space/nasa/mars-4k.jpg",
+          "sha256": "9eab45e747fe515c360bb1e7efe6e3dfd2381e3ff0e63f272f3724320c3105a6",
+          "bytes": 746665
+        },
+        {
+          "path": "assets/space/nasa/mars-normal.png",
+          "sha256": "30c1d96395fb24da206aa3eb32c9b1da813f1a1a796a489b4a2b5e05fe456b8d",
+          "bytes": 506964
+        },
+        {
+          "path": "assets/space/nasa/mercury-1k.jpg",
+          "sha256": "d3cfab0818742a5eef4e46ab41b84583c5ada73e992309e83d4f1c78120530bc",
+          "bytes": 236042
+        },
+        {
+          "path": "assets/space/nasa/mercury-4k.jpg",
+          "sha256": "5afa86c4532a748d2e027d36b82849039c44367105fde70b8c8d803ca08287af",
+          "bytes": 1089890
+        },
+        {
+          "path": "assets/space/nasa/neptune-1k.jpg",
+          "sha256": "fa1c96458e2d49b582f03d8a0b61b4fd7cac4ff32601e2a39857b9ddc05fc3e1",
+          "bytes": 82658
+        },
+        {
+          "path": "assets/space/nasa/neptune-4k.jpg",
+          "sha256": "fa1c96458e2d49b582f03d8a0b61b4fd7cac4ff32601e2a39857b9ddc05fc3e1",
+          "bytes": 82658
+        },
+        {
+          "path": "assets/space/nasa/provenance.json",
+          "sha256": "c512212fe4997fbc483b642e9739e82f146ca0cc93bb94e0f592a9080e870e27",
+          "bytes": 9275
+        },
+        {
+          "path": "assets/space/nasa/saturn-1k.jpg",
+          "sha256": "9e32279bd4b9185b4b435b2b4e09423ebaa3874b74d1f0948e342abb78a62fd8",
+          "bytes": 96010
+        },
+        {
+          "path": "assets/space/nasa/saturn-4k.jpg",
+          "sha256": "05ea3b6daec33a2643c64327361c37dfea29829e16fac66f0c7fb3fdb1701007",
+          "bytes": 986001
+        },
+        {
+          "path": "assets/space/nasa/saturn-rings.png",
+          "sha256": "ed1e7a2d9d311539cb60e9170b2179570d78bf20901eea95323c232ec454ac74",
+          "bytes": 7146
+        },
+        {
+          "path": "assets/space/nasa/sun-1k.jpg",
+          "sha256": "ed3934b13e9deb88af2c92785dd54a72943d4f8a706ede5025701c491e7436a7",
+          "bytes": 373918
+        },
+        {
+          "path": "assets/space/nasa/sun-4k.jpg",
+          "sha256": "2c56ecc7840ee68115ae136a091475e351789e893971bf3c31a45844a608268c",
+          "bytes": 1139932
+        },
+        {
+          "path": "assets/space/nasa/uranus-1k.jpg",
+          "sha256": "c0eb75f77b953c690bba96e9b4dd8265d54e79a33e48def6c0f2b3b145b8832e",
+          "bytes": 24266
+        },
+        {
+          "path": "assets/space/nasa/uranus-4k.jpg",
+          "sha256": "c0eb75f77b953c690bba96e9b4dd8265d54e79a33e48def6c0f2b3b145b8832e",
+          "bytes": 24266
+        },
+        {
+          "path": "assets/space/nasa/venus-1k.jpg",
+          "sha256": "fdbfa6289cabb6f464caef2f338412b19e4dc09d58852aa04363bd83923f4a50",
+          "bytes": 48146
+        },
+        {
+          "path": "assets/space/nasa/venus-4k.jpg",
+          "sha256": "7ab18d70563e8d0de4b40303fb567cd64aed27179ce20dbf588cb1e76f883536",
+          "bytes": 74606
+        },
+        {
+          "path": "assets/space/space.usdc",
+          "sha256": "419329943d30fa57890df5b33295fe0cb4f8f67f37b621977db893c7c6d1eb94",
+          "bytes": 61292
+        },
+        {
+          "path": "assets/space/spheres.usdc",
+          "sha256": "aba138d2474197facc44b72d15fc0ac36e04380d8966e663dfe96b24f6268e0f",
+          "bytes": 2534592
+        }
+      ]
+    },
+    "moon": {
+      "spawn": [
+        0,
+        0,
+        0
+      ],
+      "camera_eye": [
+        6,
+        -9,
+        4
+      ],
+      "camera_target": [
+        0,
+        0,
+        0.8
+      ],
+      "gravity_m_s2": 1.62,
+      "astronaut_ground_z": 0.05919568224278278,
+      "components": [
+        {
+          "prim": "/World/Environment",
+          "entry": "assets/moon/moon.usdc",
+          "source_prim": "/Moon"
+        },
+        {
+          "prim": "/World/LunarVehicles",
+          "entry": "assets/lunar-vehicles-v1/camp.usda",
+          "source_prim": "/LunarVehicles"
+        },
+        {
+          "prim": "/World/Astronaut",
+          "entry": "assets/astronaut-static.usdc",
+          "source_prim": "/Astronaut"
+        }
+      ],
+      "runtime": {
+        "mode": "experiment",
+        "gravity_m_s2": 1.62,
+        "duration_s": 10,
+        "dynamic_lod_requires_runner": false
+      },
+      "renderer_settings": {
+        "/rtx/background/source/type": 0,
+        "/rtx/fog/enabled": false
+      },
+      "notes": [
+        "Illustrative lunar terrain; near craters and PBR regolith are synthetic, distant relief adapted from NASA data.",
+        "Pink-blue glow is decorative, not a real lunar atmosphere. Lunar vehicles are static educational props.",
+        "NVIDIA astronaut retains its material graphs and neutralized clothing atlases; OmniPBR/OmniGlass MDL are Isaac runtime dependencies."
+      ],
+      "runtime_mdl_dependencies": [
+        "OmniGlass.mdl",
+        "OmniPBR.mdl"
+      ],
+      "files": [
+        {
+          "path": "assets/ASTRONAUT-SOURCE.md",
+          "sha256": "ab77e1ce33cdbb8d2781f55e20b496550ead82e30118de3d40788c6be4874f23",
+          "bytes": 3507
+        },
+        {
+          "path": "assets/astronaut-static.usdc",
+          "sha256": "9f85e1ab7cb509ded5e2d5e2c20f7d4f429996b93a03739f92b05957a3faf140",
+          "bytes": 28548894
+        },
+        {
+          "path": "assets/astronaut-textures/Materials/Accessories_MDL/astronaut_04_accessoriesS_BaseColor.png",
+          "sha256": "73a52b355f5ed191d629da135883ed4db436d3168af33efb3c584d2073661402",
+          "bytes": 1096159
+        },
+        {
+          "path": "assets/astronaut-textures/Materials/Accessories_MDL/astronaut_04_accessoriesS_Metalness.png",
+          "sha256": "eed17655cc6ef0e88704ef035e904b6f1d4192691df80a269a4d4786209c9177",
+          "bytes": 189229
+        },
+        {
+          "path": "assets/astronaut-textures/Materials/Accessories_MDL/astronaut_04_accessoriesS_Roughness.png",
+          "sha256": "261cd0252add3d6104245aa19d6bdbc0a07b5aab2dd646d1d72ad8323d06af77",
+          "bytes": 1970952
+        },
+        {
+          "path": "assets/astronaut-textures/Materials/Backpack_MDL/astronaut_04_backpackLowS_BaseColor.png",
+          "sha256": "959f74b359c953b4a865cf54049796daeb72ec3cf0bca01c4d24fc9f1c6c8e50",
+          "bytes": 1166318
+        },
+        {
+          "path": "assets/astronaut-textures/Materials/Backpack_MDL/astronaut_04_backpackLowS_Normal.png",
+          "sha256": "fafb3516871a1cd3b4225252cabc44297c5cfe8fae228d407d584b38d2944210",
+          "bytes": 6415601
+        },
+        {
+          "path": "assets/astronaut-textures/Materials/Backpack_MDL/astronaut_04_backpackLowS_Roughness.png",
+          "sha256": "2a4a2167a7c3f34cd3cdf2973be05e9e2d1043ec08748181011a740e7adc718e",
+          "bytes": 1798580
+        },
+        {
+          "path": "assets/astronaut-textures/Materials/Backpack_MDL/astronaut_04_backpacktopS_Metalness.png",
+          "sha256": "47409785b30cc38f1ec62f219ce1c46f885427442416c0768dc470497ef784cb",
+          "bytes": 4145
+        },
+        {
+          "path": "assets/astronaut-textures/Materials/Backpack_top_MDL/astronaut_04_backpacktopS_BaseColor-neutral.png",
+          "sha256": "d035a69dd8a4da8bcb6e2bc51e9448b498f6e474888c5de55c90fbba8f184bf3",
+          "bytes": 1208397
+        },
+        {
+          "path": "assets/astronaut-textures/Materials/Backpack_top_MDL/astronaut_04_backpacktopS_Metalness.png",
+          "sha256": "47409785b30cc38f1ec62f219ce1c46f885427442416c0768dc470497ef784cb",
+          "bytes": 4145
+        },
+        {
+          "path": "assets/astronaut-textures/Materials/Backpack_top_MDL/astronaut_04_backpacktopS_Normal.png",
+          "sha256": "8fd7831a98ed959ddeafa95a40a17a5bfb00c89e3dbd3ce2c752a5e1a4a45150",
+          "bytes": 8156716
+        },
+        {
+          "path": "assets/astronaut-textures/Materials/Backpack_top_MDL/astronaut_04_backpacktopS_Roughness.png",
+          "sha256": "ce371f13232eaceb027e7793898b69754c75b142ece7d8d3f64a185f8941030a",
+          "bytes": 1813877
+        },
+        {
+          "path": "assets/astronaut-textures/Materials/Body_MDL/astronaut_04_jackletS_BaseColor-neutral.png",
+          "sha256": "c5daddd85bcd31886f30484e9f97af5f3dfe65b6a231f4fdcdc1208339a1a9cd",
+          "bytes": 1217117
+        },
+        {
+          "path": "assets/astronaut-textures/Materials/Body_MDL/astronaut_04_jackletS_Metalness.png",
+          "sha256": "47409785b30cc38f1ec62f219ce1c46f885427442416c0768dc470497ef784cb",
+          "bytes": 4145
+        },
+        {
+          "path": "assets/astronaut-textures/Materials/Body_MDL/astronaut_04_jackletS_Normal.png",
+          "sha256": "c70804705e56924cb28008221e18340bedc3f9925940fff8e3210d32459b0470",
+          "bytes": 7590809
+        },
+        {
+          "path": "assets/astronaut-textures/Materials/Body_MDL/astronaut_04_jackletS_Roughness.png",
+          "sha256": "9237cf93fd1d217c4c654797405521e03bc348e4a4bd746236ca4f3ae8937b86",
+          "bytes": 1895641
+        },
+        {
+          "path": "assets/astronaut-textures/Materials/Boots_MDL/astronaut_04_bootsS_BaseColor.png",
+          "sha256": "8cb1b390ca4de56c181dbc714655a4e8fd062f36e8464af6cd6fa96742822a2d",
+          "bytes": 3097460
+        },
+        {
+          "path": "assets/astronaut-textures/Materials/Boots_MDL/astronaut_04_bootsS_Metalness.png",
+          "sha256": "47409785b30cc38f1ec62f219ce1c46f885427442416c0768dc470497ef784cb",
+          "bytes": 4145
+        },
+        {
+          "path": "assets/astronaut-textures/Materials/Boots_MDL/astronaut_04_bootsS_Normal.png",
+          "sha256": "29a396c5936abeeda61c094c064df4559ee13e590471a2dae768cabe8616dba6",
+          "bytes": 6046662
+        },
+        {
+          "path": "assets/astronaut-textures/Materials/Boots_MDL/astronaut_04_bootsS_Roughness.png",
+          "sha256": "f7b0c264028b91d758cfa1982ff6779564810dad7b431469e2dc9f969c362966",
+          "bytes": 1730066
+        },
+        {
+          "path": "assets/astronaut-textures/Materials/Gloves_MDL/astronaut_04_GlovesS_BaseColor.png",
+          "sha256": "1701800bbbc79ad88a71d32c712d2fa03820736a0b000d0da121ee4d38ba0958",
+          "bytes": 4353975
+        },
+        {
+          "path": "assets/astronaut-textures/Materials/Gloves_MDL/astronaut_04_GlovesS_Metalness.png",
+          "sha256": "47409785b30cc38f1ec62f219ce1c46f885427442416c0768dc470497ef784cb",
+          "bytes": 4145
+        },
+        {
+          "path": "assets/astronaut-textures/Materials/Gloves_MDL/astronaut_04_GlovesS_Normal.png",
+          "sha256": "7da6d6c6556ad1427d798b0b4e5ab7150a681bb0833a85cc6d1692e9fab8f2dd",
+          "bytes": 6981290
+        },
+        {
+          "path": "assets/astronaut-textures/Materials/Gloves_MDL/astronaut_04_GlovesS_Roughness.png",
+          "sha256": "8ff61a582d25884fcd5c84ff5b3881806096ea9c978e74d33b77668d3117f6ea",
+          "bytes": 1955683
+        },
+        {
+          "path": "assets/astronaut-textures/Materials/Helmet_MDL/Helmet_m_BaseColor.png",
+          "sha256": "7fd37a57b5aa0a7a0b0cfb91ea818e08ded04284c7937acd63ca2a99b40cc066",
+          "bytes": 800110
+        },
+        {
+          "path": "assets/astronaut-textures/Materials/Helmet_MDL/Helmet_m_Normal.png",
+          "sha256": "a4f40a118716ec5d43fe9012f66c1bf80383bf50c77424b898c123d0130bd7e1",
+          "bytes": 6674044
+        },
+        {
+          "path": "assets/astronaut-textures/Materials/Helmet_MDL/Helmet_m_OcclusionRoughnessMetallic.png",
+          "sha256": "cd36a1fb009a79b39bb2bf5bdce2ac2a99ad9492d5916f4c000177a02a321f5d",
+          "bytes": 3049747
+        },
+        {
+          "path": "assets/astronaut-textures/Materials/Pants_MDL/astronaut_04_pantsS_BaseColor.png",
+          "sha256": "43e0ebdf019db74a9e710c20da8743c078da3e5f060795b3ca5b521926dd4eac",
+          "bytes": 1269659
+        },
+        {
+          "path": "assets/astronaut-textures/Materials/Pants_MDL/astronaut_04_pantsS_Metalness.png",
+          "sha256": "47409785b30cc38f1ec62f219ce1c46f885427442416c0768dc470497ef784cb",
+          "bytes": 4145
+        },
+        {
+          "path": "assets/astronaut-textures/Materials/Pants_MDL/astronaut_04_pantsS_Normal.png",
+          "sha256": "b0b452111191278703f2ea19009ad6a21cec09fc4ba7c8ab54371f0468fab8ad",
+          "bytes": 7205914
+        },
+        {
+          "path": "assets/astronaut-textures/Materials/Pants_MDL/astronaut_04_pantsS_Roughness.png",
+          "sha256": "796281b0e5172e4719b7f61cde49de61beb9fa93f1f4d970f6daf8b93e176067",
+          "bytes": 1701085
+        },
+        {
+          "path": "assets/astronaut-textures/overrides.json",
+          "sha256": "1e95904982b036c7aa6b5b6472799cfe40c91440c441f778d3b7a179cd27f29c",
+          "bytes": 720
+        },
+        {
+          "path": "assets/astronaut-textures/provenance.json",
+          "sha256": "8b2926bbade90637f762e014a8c8d12bfba0598ca4a498029b19c97e71a7586c",
+          "bytes": 13596
+        },
+        {
+          "path": "assets/lunar-vehicles-v1/README.md",
+          "sha256": "2eb78bf159fcc6578308b92fa376cf3e94de073d8baa1abac96738473d35b590",
+          "bytes": 3183
+        },
+        {
+          "path": "assets/lunar-vehicles-v1/assets/LunarLander.usdc",
+          "sha256": "3d9fabf51bc319447faaecf3c233d10afeadb915d4dd9b6332bb4b9b15e00f03",
+          "bytes": 1306093
+        },
+        {
+          "path": "assets/lunar-vehicles-v1/assets/LunarRover.usdc",
+          "sha256": "9e07144a92ca5f8cb5d8ecd63f4b6199c1262447443193d90255b08f92c86e53",
+          "bytes": 3416309
+        },
+        {
+          "path": "assets/lunar-vehicles-v1/assets/textures/foil_base.png",
+          "sha256": "ecb4ab54ca33b91c990236ae1cf63b0323514a6a7af2ed917c9d483ed02ff264",
+          "bytes": 155861
+        },
+        {
+          "path": "assets/lunar-vehicles-v1/assets/textures/foil_normal.png",
+          "sha256": "6c34cd18b05bdcf63eb75351860342093d131e1c130ec9f9550665f1de3985c1",
+          "bytes": 233625
+        },
+        {
+          "path": "assets/lunar-vehicles-v1/assets/textures/foil_roughness.png",
+          "sha256": "7ee3a379c02a19d98b194d5b17d460cee34f9bfc37cea79dd4df0e379f8290f0",
+          "bytes": 124072
+        },
+        {
+          "path": "assets/lunar-vehicles-v1/assets/textures/metal_base.png",
+          "sha256": "78248f71a0edb32bcacf61ab04f36226bffc4dfdbffd1b9011f4c607a3c66215",
+          "bytes": 229784
+        },
+        {
+          "path": "assets/lunar-vehicles-v1/assets/textures/metal_normal.png",
+          "sha256": "1caff20619d15a22e5242f7d9e3e6446a42db52e5c9be2c34e445ba8546046fb",
+          "bytes": 358666
+        },
+        {
+          "path": "assets/lunar-vehicles-v1/assets/textures/metal_roughness.png",
+          "sha256": "6c57c77ad8eb6a70afe6cc26e44b04fef79a87a0bca364d22d8bafc5484d4e2b",
+          "bytes": 303679
+        },
+        {
+          "path": "assets/lunar-vehicles-v1/assets/textures/solar_base.png",
+          "sha256": "879b056a4cc0acfbb1b3cfcb56c0292b2cbf5d299bfb90ce0ab5257a43ca9e97",
+          "bytes": 10101
+        },
+        {
+          "path": "assets/lunar-vehicles-v1/assets/textures/solar_normal.png",
+          "sha256": "4ea14dedba3effe95977909c874d2f36f83036624e90bd1ccbfc3ed68211be72",
+          "bytes": 6754
+        },
+        {
+          "path": "assets/lunar-vehicles-v1/assets/textures/solar_roughness.png",
+          "sha256": "fedd8aebd25d62327062469b43f2fa9f54505d62ad577824d1161ec51bafd519",
+          "bytes": 5532
+        },
+        {
+          "path": "assets/lunar-vehicles-v1/camp.usda",
+          "sha256": "0a9150183a859edca6ed9aeb24dc26c272652642062d086968f4d73b95c6f991",
+          "bytes": 15495
+        },
+        {
+          "path": "assets/lunar-vehicles-v1/placement.json",
+          "sha256": "cb7760f6b8d2c863fc0fa0246f8865cd85be3a74fbc32f65401df14d6e7a31c7",
+          "bytes": 1337
+        },
+        {
+          "path": "assets/moon/moon.usdc",
+          "sha256": "f0de824aa1a1838ba80cf4e26f0bcd8ad6df1cc0c8a3c6a198da24410c475358",
+          "bytes": 20099973
+        },
+        {
+          "path": "assets/moon/pink-blue-glow.png",
+          "sha256": "6c74cf12bdacd50dacf133d5bee424b95cb9e4cf569c7ca076462fe2a2b5171c",
+          "bytes": 33706
+        },
+        {
+          "path": "assets/moon/provenance.json",
+          "sha256": "9b6b9d71c4bc2ba8655fb52d6d765751546bc3361694f8013dd44e69e8b4b07e",
+          "bytes": 1417
+        },
+        {
+          "path": "assets/moon/regolith-normal.png",
+          "sha256": "f335bd0ec53baf79e9ebb5e5216f940b85b06ec18c4571200a07bdce82768a5f",
+          "bytes": 9545650
+        },
+        {
+          "path": "assets/moon/regolith-regions.jpg",
+          "sha256": "e1e3114ae38c4efcb4cff47af16c1e4e92b5db9aa2062b3ccf04e3318421436a",
+          "bytes": 630529
+        },
+        {
+          "path": "assets/moon/regolith-roughness.png",
+          "sha256": "98780ed4edcdb0ea59e733eaf198df54c15681b05991c1229531312f9425ab1c",
+          "bytes": 893789
+        }
+      ]
+    }
+  }
+}

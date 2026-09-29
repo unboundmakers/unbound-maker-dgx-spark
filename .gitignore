@@ -1,0 +1,23 @@
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+artifacts/
+dist/
+.env
+.env.*
+!.env.example
+
+# Local runtime state and credentials are not source deliverables.
+builder-state*/
+downloads/
+tools/*
+!tools/release/
+**/operator.spark.qwen25-test.json
+**/operator.local*.json
+**/*.sqlite3
+**/*.sqlite3-wal
+**/*.sqlite3-shm
+
+# Display permission does not grant redistribution of the character model.
+skills/unbound-maker-asset-builder/assets/flyingcat-v1.usdc

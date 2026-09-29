@@ -1,0 +1,15 @@
+{
+  "status": "passed",
+  "model": "qwen2.5:7b",
+  "agent_job": "1c92c60a4988420a9fc4ddcb20a4230b",
+  "structured_followup": "0467d2a5285d4c6e96934948cb7fc556",
+  "auth_rejection": true,
+  "color_import": true,
+  "concept_community_disabled": true,
+  "actual_preview": true,
+  "report_download": true,
+  "four_stages_reused": true,
+  "mobile_no_horizontal_overflow": true,
+  "browser_page_errors": [],
+  "scope": "Real browser controls through SSH tunnel to five Skills and Isaac; not live streaming or a human keyboard test."
+}

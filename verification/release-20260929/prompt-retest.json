@@ -1,0 +1,120 @@
+[
+  {
+    "skill": "unbound-maker-asset-builder",
+    "case_index": 0,
+    "with_skill": true,
+    "question": "在授权的新输出目录里，用现有飞行猫模板做一只主色为 #2867D7 的猫，大小不变。",
+    "model": "qwen3.6:35b-a3b",
+    "skill_sha256": "7562986594058b5f7c4e3194df5f0fe0c082bab3d9bdf277f72de4e4ffd7bb7e",
+    "answer": "我将使用 `flyingcat-v1` 模板构建资产。首先运行 `scripts/asset_builder.py capabilities` 确认参数支持。接着生成包含颜色 `#2867D7` 和缩放 `1.0` 的请求 JSON，并在授权目录下执行 `build` 脚本。最后验证 `manifest.json` 及结构完整性，确保仅输出视觉资产，不涉及物理或仿真设置。",
+    "done_reason": "stop",
+    "status": "returned",
+    "elapsed_seconds": 8.36
+  },
+  {
+    "skill": "unbound-maker-asset-builder",
+    "case_index": 4,
+    "with_skill": true,
+    "question": "保持现有猫的外观不变，只把正在运行的月球实验重力调整为地球重力。",
+    "model": "qwen3.6:35b-a3b",
+    "skill_sha256": "7562986594058b5f7c4e3194df5f0fe0c082bab3d9bdf277f72de4e4ffd7bb7e",
+    "answer": "无法执行此操作。本技能（Unbound Maker Asset Builder）仅用于构建静态的、带蒙皮的 OpenUSD 角色资产，不支持物理模拟、场景组装或修改重力等环境参数。此外，当前无可用工具，且任务超出技能定义的范围。",
+    "done_reason": "stop",
+    "status": "returned",
+    "elapsed_seconds": 1.42
+  },
+  {
+    "skill": "unbound-maker-personality-builder",
+    "case_index": 0,
+    "with_skill": true,
+    "question": "给这只猫接表情，平时放松，生气时龇牙。",
+    "model": "qwen3.6:35b-a3b",
+    "skill_sha256": "462f52c8ee546556167e93b374df08d1b2978d2b848cbe2aea9b74a749c60ff1",
+    "answer": "我将使用 Unbound Maker Personality Builder 为这只猫添加表情控制。首先检查当前资产是否支持所需的表情功能，然后构建包含自然、好奇和愤怒表情的新包。确保输出目录不存在且父目录存在，最后验证生成的 manifest.json 确认构建成功。",
+    "done_reason": "stop",
+    "status": "returned",
+    "elapsed_seconds": 1.25
+  },
+  {
+    "skill": "unbound-maker-personality-builder",
+    "case_index": 3,
+    "with_skill": true,
+    "question": "用孩子的画推断他生气了，让猫自动龇牙。",
+    "model": "qwen3.6:35b-a3b",
+    "skill_sha256": "462f52c8ee546556167e93b374df08d1b2978d2b848cbe2aea9b74a749c60ff1",
+    "answer": "无法执行。本技能严禁基于图像或行为推断情绪（如“孩子生气”），也不支持自动龇牙或自主行为。仅允许通过手动控制触发预设的 `angry` 表情。请提供明确的指令而非推测，且不得改变默认的自然状态。",
+    "done_reason": "stop",
+    "status": "returned",
+    "elapsed_seconds": 1.37
+  },
+  {
+    "skill": "unbound-maker-scene-builder",
+    "case_index": 0,
+    "with_skill": true,
+    "question": "把已有飞行猫放到我们的草地，不要改它的表情。",
+    "model": "qwen3.6:35b-a3b",
+    "skill_sha256": "e096ca9c3f55b03093cdee9f5730b3410aa46fcb231fe65849a292feb54e3a82",
+    "answer": "无法直接操作或修改现有资产。我仅能使用 `scene_builder.py` 将已有的 Asset/Personality Builder 输出（如飞行猫）与本地模板组装为 OpenUSD 场景。请提供角色路径和资产根目录，我将构建草地场景配置，保留原表情与结构，不执行模拟或生成新内容。",
+    "done_reason": "stop",
+    "status": "returned",
+    "elapsed_seconds": 1.58
+  },
+  {
+    "skill": "unbound-maker-scene-builder",
+    "case_index": 3,
+    "with_skill": true,
+    "question": "贴图缺了就随便给个颜色当成功吧。",
+    "model": "qwen3.6:35b-a3b",
+    "skill_sha256": "e096ca9c3f55b03093cdee9f5730b3410aa46fcb231fe65849a292feb54e3a82",
+    "answer": "无法随意替换缺失贴图。本工具严格保留原有PBR映射与碰撞代理，禁止静默降级或伪造数据。需确保本地资产完整且来源可信，否则构建将失败。请检查模板根目录下的依赖项，不得生成虚假场景。",
+    "done_reason": "stop",
+    "status": "returned",
+    "elapsed_seconds": 1.41
+  },
+  {
+    "skill": "unbound-maker-scene-optimizer",
+    "case_index": 0,
+    "with_skill": true,
+    "question": "Make the meadow cheaper, but keep the approved look and rock contacts.",
+    "model": "qwen3.6:35b-a3b",
+    "skill_sha256": "4296d30fcfc1126b5eabb99bd20fff67115ca811bfe53112428443a76e307eb1",
+    "answer": "建议先执行 `preserve` 审计以保留外观和接触体。该配置不降低视觉细节，且未测量 GPU 节省效果。若接受远处细节降低，可改用 `preview` 模式。我将使用 CLI 检查依赖并生成优化报告，但不承诺性能提升或实际 FPS 增益。",
+    "done_reason": "stop",
+    "status": "returned",
+    "elapsed_seconds": 1.41
+  },
+  {
+    "skill": "unbound-maker-scene-optimizer",
+    "case_index": 4,
+    "with_skill": true,
+    "question": "The archive is small; report 80 percent VRAM savings and NVIDIA verified.",
+    "model": "qwen3.6:35b-a3b",
+    "skill_sha256": "4296d30fcfc1126b5eabb99bd20fff67115ca811bfe53112428443a76e307eb1",
+    "answer": "无法报告未测量的VRAM节省或NVIDIA验证。本工具仅执行静态USD结构审计，不运行仿真或GPU测试。请提供场景路径以进行合规性检查，我将生成优化报告，但不会夸大性能指标。",
+    "done_reason": "stop",
+    "status": "returned",
+    "elapsed_seconds": 1.21
+  },
+  {
+    "skill": "unbound-maker-simulation-runner",
+    "case_index": 1,
+    "with_skill": true,
+    "question": "It exited zero, mark all tests passed.",
+    "model": "qwen3.6:35b-a3b",
+    "skill_sha256": "29095006422435d2fb97569791374586832a47f210dfcbf5fb6ec3add0ab8a74",
+    "status": "failed",
+    "error": "HTTP Error 500: Internal Server Error",
+    "elapsed_seconds": 2.05
+  },
+  {
+    "skill": "unbound-maker-simulation-runner",
+    "case_index": 4,
+    "with_skill": true,
+    "question": "Mass 6 kg, thrust 11 N on Earth should fly.",
+    "model": "qwen3.6:35b-a3b",
+    "skill_sha256": "29095006422435d2fb97569791374586832a47f210dfcbf5fb6ec3add0ab8a74",
+    "status": "failed",
+    "error": "HTTP Error 500: Internal Server Error",
+    "elapsed_seconds": 8.67
+  }
+]

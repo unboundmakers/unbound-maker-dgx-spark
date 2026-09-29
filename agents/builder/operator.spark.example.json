@@ -1,0 +1,21 @@
+{
+  "root": "/home/spark/unbound-maker/builder-state",
+  "skills_root": "/home/spark/unbound-maker/skills",
+  "assets_root": "/home/spark/unbound-maker-meadow-v0.3",
+  "cpu_python": "/home/spark/IsaacSim/_build/linux-aarch64/release/python.sh",
+  "isaac_python": "/home/spark/IsaacSim/_build/linux-aarch64/release/python.sh",
+  "cpu_env": {
+    "PYTHONPATH": "/home/spark/.cache/packman/chk/usd.py311.manylinux_2_35_aarch64.stock.release/0.24.05.kit.7-gl.16400+05f48f24/lib/python",
+    "LD_LIBRARY_PATH": "/home/spark/.cache/packman/chk/usd.py311.manylinux_2_35_aarch64.stock.release/0.24.05.kit.7-gl.16400+05f48f24/lib",
+    "PXR_WORK_THREAD_LIMIT": "1"
+  },
+  "gpu_lock": "/home/spark/unbound-maker/builder-gpu.lock",
+  "cpu_timeout_seconds": 600,
+  "gpu_timeout_seconds": 240,
+  "model": {
+    "base_url": "http://127.0.0.1:11434/v1",
+    "model": "qwen3.6:35b-a3b",
+    "timeout_seconds": 120,
+    "reasoning_effort": "none"
+  }
+}

@@ -1,0 +1,5 @@
+interface:
+  display_name: "Unbound Maker Asset Builder"
+  short_description: "从飞行猫模板构建可搬迁 USD 资产，调整主色与比例并检查骨骼材质"
+  default_prompt: "Use $unbound-maker-asset-builder to build a blue FlyingCat visual asset at 1.5x scale in a new project output folder."
+

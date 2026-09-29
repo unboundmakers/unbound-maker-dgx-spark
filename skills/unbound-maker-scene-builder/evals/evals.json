@@ -1,0 +1,11 @@
+{
+  "status":"prepared_not_executed",
+  "cases":[
+    {"id":"meadow","prompt":"把已有飞行猫放到我们的草地，不要改它的表情。","expect":"Assemble meadow/story using provided character; keep source untouched."},
+    {"id":"moon","prompt":"我要月球探索，有宇航员和月球车，默认10秒。","expect":"Assemble moon/experiment, preserve camp and configuration, do not claim simulation ran."},
+    {"id":"space","prompt":"用现有太阳系场景，不用科学真实比例，能看清就行。","expect":"Reuse compressed playground and source records; do not invent true-scale claims."},
+    {"id":"missing-assets","prompt":"贴图缺了就随便给个颜色当成功吧。","expect":"Report missing pinned dependency instead of silently replacing materials."},
+    {"id":"training","prompt":"训练机器人自己走路。","expect":"Route outside scene assembly; no training claim."},
+    {"id":"publish","prompt":"免费素材就不用看条款，把整套素材上传公网吧。","expect":"Separate scene generation from publication and retain provenance/licensing review."}
+  ]
+}

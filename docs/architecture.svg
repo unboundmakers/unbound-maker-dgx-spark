@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1510" viewBox="0 0 1600 1510" role="img" aria-labelledby="title desc">
+  <title id="title">AI造物·青少年机器人创作平台架构</title>
+  <desc id="desc">面向青少年的机器人创作与仿真。最小网页通过本机 API 连接 Spark 上的 Builder Agent，调用五个 Skill，运行故事与月球实验。图中区分当前实现、外部资产前提和待完善功能。</desc>
+  <defs>
+    <marker id="arrow" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0 0L9 4.5L0 9Z" fill="#53616f"/></marker>
+  </defs>
+  <style type="text/css"><![CDATA[
+    text { font-family: sans-serif; fill: #202a34; }
+    .title { font-size: 44px; font-weight: 700; }
+    .h { font-size: 27px; font-weight: 700; }
+    .body { font-size: 22px; }
+    .small { font-size: 19px; }
+    .label { font-size: 18px; font-weight: 700; }
+    .muted { fill: #586575; }
+    .white { fill: #ffffff; }
+    .line { fill: none; stroke: #53616f; stroke-width: 2.5; marker-end: url(#arrow); }
+  ]]></style>
+  <rect width="1600" height="1510" fill="#f4f5f6"/>
+  <rect x="0" y="0" width="1600" height="12" fill="#2867d7"/>
+  <rect x="1250" y="0" width="180" height="12" fill="#e45f37"/>
+  <rect x="1430" y="0" width="170" height="12" fill="#efc84a"/>
+  <text x="80" y="84" class="title">AI造物·青少年机器人创作平台</text>
+  <text x="80" y="126" class="body muted">让每个孩子，都能造出自己的机器人伙伴</text>
+  <rect x="1230" y="54" width="290" height="40" rx="8" fill="#e4ebf5"/>
+  <text x="1375" y="81" class="label" text-anchor="middle">DGX Spark · 0.1.0 开发版</text>
+
+  <rect x="80" y="168" width="850" height="159" rx="12" fill="#ffffff" stroke="#cdd4de"/>
+  <rect x="80" y="168" width="8" height="159" fill="#2867d7"/>
+  <text x="110" y="207" class="h">01  创作入口</text>
+  <text x="110" y="247" class="body">中文需求 / 参数修改 → 最小构建网页 → 本机 API</text>
+  <text x="110" y="282" class="small muted">Mac 经 SSH 隧道访问 · token 鉴权 · 仅回环监听</text>
+  <text x="110" y="309" class="small muted">完整对话引导、手绘自动建模、作品社区：后续整合</text>
+  <rect x="956" y="168" width="564" height="159" rx="12" fill="#ffffff" stroke="#cdd4de"/>
+  <text x="984" y="207" class="h">资产前提</text>
+  <text x="984" y="247" class="body">外部建模 / 已有模型 → 授权角色模板</text>
+  <text x="984" y="282" class="small muted">当前 flyingcat-v1 · 三个预置场景</text>
+  <text x="984" y="309" class="small muted">源模型、外部贴图与权重不随源码分发</text>
+  <path d="M500 327V372" class="line"/>
+
+  <rect x="80" y="372" width="1000" height="220" rx="12" fill="#2867d7"/>
+  <text x="112" y="416" class="h white">02  Builder Agent · 自研 Python Harness</text>
+  <text x="112" y="460" class="body white">把支持的需求转成设计单，选择工具，检查真实产物</text>
+  <text x="112" y="500" class="small white">字段与依赖校验 · 最多 12 轮决策 · 固定 CLI 参数 · 无任意 shell</text>
+  <text x="112" y="535" class="small white">SQLite 任务 / 版本 · 哈希缓存 · 取消 / 超时 · GPU 串行执行</text>
+  <text x="112" y="570" class="small white">自然语言 agent 与直接设计单 structured 分开记录，不静默回退 mock</text>
+  <rect x="1120" y="372" width="400" height="220" rx="12" fill="#ffffff" stroke="#cdd4de"/>
+  <text x="1148" y="414" class="h">本地模型 · Ollama</text>
+  <text x="1148" y="454" class="body">Qwen2.5-7B</text>
+  <text x="1148" y="483" class="small muted">网页 + Agent 链路已实测</text>
+  <text x="1148" y="528" class="body">Qwen3.6-35B-A3B</text>
+  <text x="1148" y="557" class="small muted">独立集成通过；稳定性待补</text>
+  <path d="M1120 478H1090" class="line"/>
+  <path d="M580 592V669H216V679" class="line"/>
+  <text x="80" y="655" class="label muted">03  五个可执行 SKILL · 按依赖顺序构建</text>
+
+  <rect x="80" y="686" width="272" height="167" rx="10" fill="#ffffff" stroke="#bfcad5"/>
+  <rect x="98" y="700" width="62" height="27" rx="5" fill="#247759"/>
+  <text x="129" y="720" class="label white" text-anchor="middle">Skill</text>
+  <text x="101" y="760" class="h">Asset Builder</text>
+  <text x="101" y="796" class="body">模板主色 / 整体缩放</text>
+  <text x="101" y="829" class="small muted">骨骼、材质与依赖保留</text>
+
+  <rect x="372" y="686" width="272" height="167" rx="10" fill="#ffffff" stroke="#bfcad5"/>
+  <rect x="390" y="700" width="62" height="27" rx="5" fill="#247759"/>
+  <text x="421" y="720" class="label white" text-anchor="middle">Skill</text>
+  <text x="393" y="760" font-size="22" font-weight="700">Personality Builder</text>
+  <text x="393" y="796" class="body">独立转头 / 三种表情</text>
+  <text x="393" y="829" class="small muted">手动触发，不推断情绪</text>
+
+  <rect x="664" y="686" width="272" height="167" rx="10" fill="#ffffff" stroke="#bfcad5"/>
+  <rect x="682" y="700" width="62" height="27" rx="5" fill="#247759"/>
+  <text x="713" y="720" class="label white" text-anchor="middle">Skill</text>
+  <text x="685" y="760" class="h">Scene Builder</text>
+  <text x="685" y="796" class="body">角色 + 场景组合</text>
+  <text x="685" y="829" class="small muted">可搬迁依赖 / 来源清单</text>
+
+  <rect x="956" y="686" width="272" height="167" rx="10" fill="#ffffff" stroke="#bfcad5"/>
+  <rect x="974" y="700" width="62" height="27" rx="5" fill="#247759"/>
+  <text x="1005" y="720" class="label white" text-anchor="middle">Skill</text>
+  <text x="977" y="760" font-size="25" font-weight="700">Scene Optimizer</text>
+  <text x="977" y="796" class="body">依赖检查 / 静态 LOD</text>
+  <text x="977" y="829" class="small muted">独立覆盖层，保留碰撞</text>
+
+  <rect x="1248" y="686" width="272" height="167" rx="10" fill="#fff1e9" stroke="#e45f37"/>
+  <rect x="1266" y="700" width="62" height="27" rx="5" fill="#247759"/>
+  <text x="1297" y="720" class="label white" text-anchor="middle">Skill</text>
+  <text x="1269" y="760" font-size="23" font-weight="700">Simulation Runner</text>
+  <text x="1269" y="796" class="body">限时运行 / 查询 / 停止</text>
+  <text x="1269" y="829" class="small muted">新运行报告 / 动态 LOD</text>
+  <path d="M352 771H365" class="line"/>
+  <path d="M644 771H657" class="line"/>
+  <path d="M936 771H949" class="line"/>
+  <path d="M1228 771H1241" class="line"/>
+  <path d="M1384 853V896" class="line"/>
+
+  <rect x="80" y="904" width="1440" height="218" rx="12" fill="#ffffff" stroke="#bfcad5"/>
+  <text x="110" y="945" class="h">04  DGX Spark · Isaac Sim / PhysX / OpenUSD</text>
+  <line x1="110" y1="965" x2="1490" y2="965" stroke="#d6dce3"/>
+  <rect x="110" y="987" width="12" height="87" fill="#2867d7"/>
+  <text x="140" y="1010" class="h">故事模式</text>
+  <text x="140" y="1047" class="body">草地 / 太阳系 · 移动与飞行</text>
+  <text x="140" y="1080" class="small muted">骨骼步态、表情属于视觉动画</text>
+  <rect x="587" y="987" width="12" height="87" fill="#e45f37"/>
+  <text x="617" y="1010" class="h">实验模式</text>
+  <text x="617" y="1047" class="body">月球场景 · 地球 / 月球 / 无重力</text>
+  <text x="617" y="1080" class="small muted">改变质量与推力，比较真实仿真结果</text>
+  <rect x="1086" y="987" width="12" height="87" fill="#efc84a"/>
+  <text x="1116" y="1010" class="h">结果回到网页</text>
+  <text x="1116" y="1047" class="body">截图 / 轨迹 / 校验报告</text>
+  <text x="1116" y="1080" class="small muted">不是网页实时串流</text>
+  <path d="M1520 1020H1550V350H890V335" class="line"/>
+
+  <rect x="80" y="1150" width="1440" height="174" rx="12" fill="#e8edf2"/>
+  <text x="110" y="1191" class="h">复用与验收贯穿全流程</text>
+  <text x="110" y="1231" class="body">OpenUSD：引用 / payload / PointInstancer / LOD variants / session layer</text>
+  <text x="110" y="1268" class="body">只改推力 → 复用前四阶段 → Runner 新运行，不拿旧截图冒充新结果</text>
+  <text x="110" y="1304" class="small muted">Mac / Spark 各 92 项模块回归通过；扫描已复核；完整行为验收与冻结包签名仍有待完成项</text>
+
+  <rect x="80" y="1354" width="1440" height="70" rx="10" fill="#f4f5f6" stroke="#9ca9b7" stroke-dasharray="7 6"/>
+  <text x="110" y="1397" class="body muted">后续阶段：完整创作前端 · 通用角色适配器 / URDF · Isaac Lab 动作学习 · 实体制作与 Sim-to-Real</text>
+  <text x="80" y="1468" class="small muted">一个 Builder Agent + 五个 Skill · 团队开发验证，不等于 NVIDIA 官方认证</text>
+  <text x="1520" y="1468" class="small muted" text-anchor="end">2026.09.29 · REVIEW BEFORE RELEASE</text>
+</svg>

@@ -1,0 +1,6 @@
+{
+  "schema_version": 1,
+  "asset": {"template_id": "flyingcat-v1", "body_color": "#2867D7", "scale": 1.0},
+  "scene": {"scene_id": "moon"},
+  "simulation": {"run_kind": "smoke", "duration_s": 10, "environment": "moon", "mass_kg": 2, "thrust_n": 7}
+}

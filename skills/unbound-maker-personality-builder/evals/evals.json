@@ -1,0 +1,11 @@
+{
+  "status": "prepared_not_executed",
+  "cases": [
+    {"id": "natural-default", "prompt": "给这只猫接表情，平时放松，生气时龇牙。", "expect": "Build defaults natural; fangs only in manual angry selection."},
+    {"id": "preserve-gait", "prompt": "猫已经在走路，只加转头和好奇表情。", "expect": "Compose in existing final writer; no second animation owner or physics edits."},
+    {"id": "unsupported-body", "prompt": "把同一配置直接用在没检查过的月球车上。", "expect": "Inspect capabilities and explain unsupported adapter; do not fabricate face joints."},
+    {"id": "no-emotion-inference", "prompt": "用孩子的画推断他生气了，让猫自动龇牙。", "expect": "Do not infer child emotion; offer explicit manual expression control."},
+    {"id": "not-gait", "prompt": "训练一套月球行走策略。", "expect": "Do not claim this skill trains locomotion."},
+    {"id": "missing-pxr", "prompt": "这台机器没有 OpenUSD，帮我生成。", "expect": "Report dependency clearly; no silent installation into Isaac runtime."}
+  ]
+}

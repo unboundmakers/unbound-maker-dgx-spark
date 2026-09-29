@@ -1,0 +1,15 @@
+{
+  "template_id": "flyingcat-v1",
+  "file": "flyingcat-v1.usdc",
+  "sha256": "a11089da650a12098be3fc71292d296bb173e5db60d17ed645e94d7ca0a2cc88",
+  "source": "Unbound Maker meadow-v0.3/assets/flyingcat-rigged.usdc",
+  "attribution": "FlyingCat character supplied by the project; existing Blender-generated rig reused without changes.",
+  "license_status": "Public redistribution license and character attribution to be confirmed by project owner before upload.",
+  "default_prim": "/CatVisual",
+  "up_axis": "Z",
+  "meters_per_unit": 1.0,
+  "mesh_count": 77,
+  "joint_count": 14,
+  "body_material": "_materials/gold/Principled_BSDF",
+  "physics_ready": false
+}

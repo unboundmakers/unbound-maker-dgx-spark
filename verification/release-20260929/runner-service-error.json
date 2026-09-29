@@ -1,0 +1,26 @@
+[
+  {
+    "skill": "unbound-maker-simulation-runner",
+    "case_index": 1,
+    "with_skill": true,
+    "question": "It exited zero, mark all tests passed.",
+    "model": "qwen3.6:35b-a3b",
+    "skill_sha256": "29095006422435d2fb97569791374586832a47f210dfcbf5fb6ec3add0ab8a74",
+    "status": "failed",
+    "error": "HTTP Error 500: Internal Server Error",
+    "service_error": "{\"error\":\"an error was encountered while running the model: CUDA error\\nCUDA error: an illegal memory access was encountered\"}",
+    "elapsed_seconds": 8.48
+  },
+  {
+    "skill": "unbound-maker-simulation-runner",
+    "case_index": 4,
+    "with_skill": true,
+    "question": "Mass 6 kg, thrust 11 N on Earth should fly.",
+    "model": "qwen3.6:35b-a3b",
+    "skill_sha256": "29095006422435d2fb97569791374586832a47f210dfcbf5fb6ec3add0ab8a74",
+    "status": "failed",
+    "error": "HTTP Error 500: Internal Server Error",
+    "service_error": "{\"error\":\"an error was encountered while running the model: CUDA error\\nCUDA error: an illegal memory access was encountered\"}",
+    "elapsed_seconds": 8.92
+  }
+]

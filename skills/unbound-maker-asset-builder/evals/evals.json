@@ -1,0 +1,50 @@
+[
+  {
+    "id": "asset-blue-positive",
+    "question": "在授权的新输出目录里，用现有飞行猫模板做一只主色为 #2867D7 的猫，大小不变。",
+    "expected_skill": "unbound-maker-asset-builder",
+    "expected_script": "scripts/asset_builder.py",
+    "ground_truth": "Build the supported template with scale 1 and the requested body color; verify actual artifacts rather than only writing a proposal.",
+    "expected_behavior": ["Runs a real build and parses its exit status", "Checks manifest and validation", "Preserves wing and eye materials", "Reports a visual asset, not a physics-ready robot"]
+  },
+  {
+    "id": "asset-scale-positive",
+    "question": "生成一只放大到原来 1.5 倍的飞行猫，保持原来的颜色，不要改动旧作品。",
+    "expected_skill": "unbound-maker-asset-builder",
+    "expected_script": "scripts/asset_builder.py",
+    "ground_truth": "Omit body_color and set scale to 1.5 in a fresh output directory.",
+    "expected_behavior": ["Preserves template color", "Applies uniform scale", "Does not overwrite earlier output", "Returns the complete asset folder"]
+  },
+  {
+    "id": "asset-portable-positive",
+    "question": "做一个可以完整复制到另一台机器上的飞行猫资产包，保留骨骼和材质；不要启动仿真。",
+    "expected_skill": "unbound-maker-asset-builder",
+    "expected_script": "scripts/asset_builder.py",
+    "ground_truth": "Create a package with relative references, its local template copy and reports; no scene launch.",
+    "expected_behavior": ["Copies required source with the entrypoint", "Checks dependencies and skeleton bindings", "Does not start Isaac Sim", "Does not claim GPU performance gains"]
+  },
+  {
+    "id": "asset-course-copy-negative",
+    "question": "帮我给青少年机器人课程写一句招募文案，不需要生成模型。",
+    "expected_skill": null,
+    "expected_script": null,
+    "ground_truth": "Writing copy does not require character asset building.",
+    "expected_behavior": ["Does not invoke Asset Builder", "Does not create USD files"]
+  },
+  {
+    "id": "asset-gravity-negative",
+    "question": "保持现有猫的外观不变，只把正在运行的月球实验重力调整为地球重力。",
+    "expected_skill": null,
+    "expected_script": null,
+    "ground_truth": "Route to simulation parameter control if available; this visual asset tool cannot change gravity.",
+    "expected_behavior": ["Does not invoke Asset Builder", "Does not invent an Asset Builder gravity field", "Explains the unavailable runtime control if no runner is installed"]
+  },
+  {
+    "id": "asset-missing-usd-failure",
+    "question": "当前 Python 无法导入 pxr，请按飞行猫模板生成资产。不要修改系统或 Isaac 的 Python 环境。",
+    "expected_skill": "unbound-maker-asset-builder",
+    "expected_script": "scripts/asset_builder.py",
+    "ground_truth": "Check for an approved compatible runtime; if none is available, report the missing dependency without pretending to build.",
+    "expected_behavior": ["Respects the environment modification restriction", "Reports missing_dependency when blocked", "Does not fabricate success or a generated asset"]
+  }
+]

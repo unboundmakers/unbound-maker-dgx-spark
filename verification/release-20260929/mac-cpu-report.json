@@ -1,0 +1,47 @@
+{
+  "suites": [
+    {
+      "suite": "agent",
+      "tests": 26,
+      "seconds": 3.008,
+      "passed": true,
+      "log_sha256": "a5b22cd7ec0b64d8eb4e58376b6ff914aa11c0098c504669c9dee69323a4d890"
+    },
+    {
+      "suite": "asset",
+      "tests": 14,
+      "seconds": 1.252,
+      "passed": true,
+      "log_sha256": "5db039602fff666e73922f47585546c79bcdad790258d2cc7b4528c41d20b972"
+    },
+    {
+      "suite": "personality",
+      "tests": 16,
+      "seconds": 0.471,
+      "passed": true,
+      "log_sha256": "6b21252615a546e453c403e86f1972d8d33610c828f57ab9d6ca85897379c662"
+    },
+    {
+      "suite": "scene",
+      "tests": 10,
+      "seconds": 2.664,
+      "passed": true,
+      "log_sha256": "6f8abdb98599105ea1fdde3e0529790e08db9631fc5bcb2baba06f0a95591a34"
+    },
+    {
+      "suite": "optimizer",
+      "tests": 13,
+      "seconds": 222.738,
+      "passed": true,
+      "log_sha256": "2c0677b45a3f560630b87aedccee41594b8ac8a47c03aa8f49d3be139d3b8053"
+    },
+    {
+      "suite": "runner",
+      "tests": 13,
+      "seconds": 12.061,
+      "passed": true,
+      "log_sha256": "b8d2a299038ea93a45103818ce74c900f35d6db89dc2f94fc7a5e5470c079cab"
+    }
+  ],
+  "raw_logs": "Retained locally; not distributed because of private machine paths"
+}

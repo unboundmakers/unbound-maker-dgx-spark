@@ -1,0 +1,4 @@
+interface:
+  display_name: "Unbound Maker Scene Optimizer"
+  short_description: "Audit USD scenes and safely reduce distant visual detail"
+  default_prompt: "Use $unbound-maker-scene-optimizer to inspect this Scene Builder package, preserve the original, and produce a separate output with an honest optimization report."

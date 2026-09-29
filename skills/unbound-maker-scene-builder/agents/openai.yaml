@@ -1,0 +1,4 @@
+interface:
+  display_name: "Unbound Maker Scene Builder"
+  short_description: "Assemble reusable meadow, space and lunar USD scenes"
+  default_prompt: "Use $unbound-maker-scene-builder to place my existing character in a lunar experiment scene and validate the portable USD package."

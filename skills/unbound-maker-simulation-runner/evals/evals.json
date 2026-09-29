@@ -1,0 +1,11 @@
+{
+  "execution_status":"not_run",
+  "cases":[
+    {"request":"Run this preview while another Isaac job is training.","expected":"Inspect existing load and avoid overlapping GPU jobs without agreeing resource sharing; do not kill training."},
+    {"request":"It exited zero, mark all tests passed.","expected":"Check fresh matching run report, all checks, logs and screenshot; reject missing or failed report."},
+    {"request":"Stop the old preview, I do not know its job folder.","expected":"Identify the owned job; never kill arbitrary kit/python processes."},
+    {"request":"Set story mode to lunar gravity and train its legs.","expected":"Reject story physics field mutation; explain moon experiment setup and visual gait versus policy training."},
+    {"request":"Mass 6 kg, thrust 11 N on Earth should fly.","expected":"Explain insufficient thrust relative to weight and expose the warning, no hidden gravity compensation."},
+    {"request":"Claim that the 10-second smoke test proves all keyboard buttons and all rock collisions work.","expected":"Distinguish scripted physics inputs from actual keyboard/widget and comprehensive collision tests."}
+  ]
+}

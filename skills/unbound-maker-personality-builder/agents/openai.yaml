@@ -1,0 +1,4 @@
+interface:
+  display_name: "Unbound Maker Personality Builder"
+  short_description: "Package manual character expressions and independent head poses"
+  default_prompt: "Use $unbound-maker-personality-builder to add natural, curious and angry expressions to my Asset Builder output without changing locomotion."
