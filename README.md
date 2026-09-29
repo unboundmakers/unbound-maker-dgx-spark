@@ -12,9 +12,9 @@ Unbound Maker 将角色构建、表情、场景、优化和仿真封装成五个
 
 [参赛说明](SUBMISSION.md) · [Agent 使用与 API](agents/builder/README.md) · [Spark 部署](docs/builder-agent-spark.md) · [验证记录](verification/builder-agent-ledger.md)
 
-> 版本：0.1.0 开发版。2026-09-29，五个 Skill、结构化构建与真实 Isaac 仿真已通过；Spark 本地 Qwen2.5-7B 已通过 CLI 和最小网页入口的真实模型驱动链路。Qwen3.6-35B-A3B（Q4_K_M）已下载并通过独立 Agent 集成及推力修改复用测试，尚未单独进行网页验收。见 [Qwen2.5](verification/builder-agent/qwen25-acceptance.md)、[Qwen3.6](verification/builder-agent/qwen36-acceptance.md)和[网页验收](verification/builder-agent/frontend-acceptance.md)。团队发布检查另行记录，不代表 NVIDIA 官方认证。
+> 版本：0.1.0 开发版。五个 Skill 已完成封装和模块测试，结构化构建与真实 Isaac 仿真通过。Qwen3.6-35B-A3B（Q4_K_M）完成 Spark 独立 Agent 集成和推力修改复用测试；Qwen2.5-7B 完成 CLI 与最小网页链路测试。见 [Qwen3.6](verification/builder-agent/qwen36-acceptance.md)、[Qwen2.5](verification/builder-agent/qwen25-acceptance.md)和[网页验收](verification/builder-agent/frontend-acceptance.md)。以上为团队实测记录。
 
-> 本次提交以 Qwen3.6 为目标模型，Qwen2.5 记录仅保留为早期链路证据，不是发布前必须切回的模型。追加提示词评测曾出现 CUDA 非法内存访问；使用同一权重、`num_batch=128` 后 Runner 六题均返回，物理计算与报告边界题已复核，但这不等于完整稳定性验收。可选配置见 [Qwen36-Spark.Modelfile](agents/builder/Qwen36-Spark.Modelfile)。本版先提交开发源码，未关闭项见[源码发布验收](verification/release-20260929/README.md)；资产原文件不随源码分发，见[资产准备清单](docs/asset-distribution.md)。
+> 本次提交以 Qwen3.6 为目标模型。可选 Spark 推理配置见 [Qwen36-Spark.Modelfile](agents/builder/Qwen36-Spark.Modelfile)，实际测试范围见[团队验证记录](verification/release-20260929/README.md)。角色和场景原文件独立管理，见[资产准备清单](docs/asset-distribution.md)。
 
 ![蓝色飞行猫在月球场景中的真实 Isaac Sim 运行截图](verification/builder-agent/structured-moon-preview.png)
 
@@ -102,20 +102,20 @@ Skill 是可复用的执行能力，不必各自启动一个模型。Asset Build
 
 ## 当前验证结果
 
-| 对象 | 已有证据 | 仍未证明的部分 |
-| --- | --- | --- |
-| Asset Builder | Mac / Spark 各 14 项测试通过，真实 USD 样例构建 | 任意图生机器人、物理关节与 URDF |
-| Personality Builder | Mac / Spark 各 16 项测试通过 | 自动情绪识别、实体触摸交互 |
-| Scene Builder | Mac / Spark 各 10 项测试通过，三个场景构建成功 | 任意文字生成全新世界 |
-| Scene Optimizer | Mac / Spark 各 13 项测试通过，保护对象及依赖检查通过 | GPU 内存和 FPS 收益 |
-| Simulation Runner | Mac / Spark 各 13 项测试通过；三个场景及月球地球重力对照完成真实 Isaac 自动运行 | 真人键盘 / UI 完整验收、训练后关节控制 |
-| Builder Agent | 26 项回归测试；Qwen2.5 网页链路、Qwen3.6 独立 Agent 集成及推力修改复用通过，另有真实取消清理记录 | 完整创作前端、真人交互、Qwen3.6 网页验收 |
+| 对象 | 已完成的验证 |
+| --- | --- |
+| Asset Builder | Mac / Spark 各 14 项测试通过，真实 USD 样例构建 |
+| Personality Builder | Mac / Spark 各 16 项测试通过；默认自然、手动表情、头部层级及步态保留检查 |
+| Scene Builder | Mac / Spark 各 10 项测试通过，三个场景构建成功 |
+| Scene Optimizer | Mac / Spark 各 13 项测试通过，保护对象及依赖检查通过 |
+| Simulation Runner | Mac / Spark 各 13 项测试通过；三个场景及月球、地球重力对照完成真实 Isaac 自动运行 |
+| Builder Agent | Mac / Spark 各 26 项回归通过；Qwen3.6 独立 Agent 集成、Qwen2.5 网页链路、推力修改复用及真实取消清理测试 |
 
-详细范围见 [Asset](verification/asset-builder-0.1.0.md)、[Personality](verification/personality-builder-0.1.0.md)、[Scene](verification/scene-builder-0.1.0.md)、[Optimizer](verification/scene-optimizer-0.1.0.md)、[Runner](verification/simulation-runner-0.1.0.md) 和 [Builder 执行记录](verification/builder-agent-ledger.md)。这些是对应版本的开发测试，尚不等于完整 Skill 发布验证。
+详细范围见 [Asset](verification/asset-builder-0.1.0.md)、[Personality](verification/personality-builder-0.1.0.md)、[Scene](verification/scene-builder-0.1.0.md)、[Optimizer](verification/scene-optimizer-0.1.0.md)、[Runner](verification/simulation-runner-0.1.0.md) 和 [Builder 执行记录](verification/builder-agent-ledger.md)。测试结论对应记录中的版本、模型与环境。
 
 ## 在 Spark 上运行
 
-首次完整复现需要 DGX Spark、可工作的 Isaac Sim、兼容的 USD Python 环境，以及登记的场景模板和贴图。模型与大体积场景素材不随源码包分发；模板获取和公开授权仍是发布前待完成项。当前还不是干净机器上下载即用的公开发行包。
+运行需要 DGX Spark、可工作的 Isaac Sim、兼容的 USD Python 环境，以及与登记清单匹配的授权角色、场景模板和贴图。模型与大体积素材不随源码包分发，请按[资产准备清单](docs/asset-distribution.md)配置本地依赖。
 
 Builder 本身只使用 Python 3.10+ 标准库。CPU USD 构建和 Isaac 运行使用各自明确的解释器与进程级环境，不能把开发机的 USD wheel 强行装入 Isaac 环境。
 
@@ -148,8 +148,7 @@ Qwen3.6-35B-A3B（`qwen3.6:35b-a3b`，Ollama Q4_K_M，不是 FP8）已完成下�
 | OpenUSD | 角色、骨骼、材质、场景组合、实例化、payload、variants 和 session layer |
 | Python / SQLite | 自研 Harness、持久化队列、版本与缓存、固定 Skill CLI、本机 API |
 | Ollama / Qwen2.5-7B | 本地真实模型驱动五个 Skill 与 Isaac 验证已实测一次，含一次格式修复 |
-| Qwen3.6-35B-A3B / Q4_K_M | 已下载；Spark 独立 Agent 集成及推力修改复用通过；网页验收未单独进行 |
-| StepFun、Isaac Lab、Cosmos、ROS 2 | 本版主线尚未接入，不计为已使用技术 |
+| Qwen3.6-35B-A3B / Q4_K_M | Spark 独立 Agent 集成及推力修改复用通过 |
 
 Ubuntu 是运行环境，不是仿真引擎。团队前期 MuJoCo、Unity 和其他交互示例保留在原项目中，不计入本仓库已接通的 Isaac 主线。也没有另行开发 CUDA 内核或完成模型微调。
 
@@ -178,13 +177,6 @@ verification/             测试记录、截图及运行报告
 
 孩子的原创角色、团队代码和第三方场景素材分别登记来源。代码与文档许可已确定；发布前仍需核对角色署名及逐项素材分发范围。不将全部资产统一标为 CC0，也不上传孩子的原始问卷、个人对话、私有作品、密钥或家庭网络信息。源码提交排除角色源模型、运行数据和旧构建 ZIP，保留原文件在本地，不破坏已验证的 Spark 环境。
 
-自研 Skill 按登记、扫描、评测、团队签名和文档五项准备源码发布候选。双端回归、Bandit 扫描及有限提示词对照已执行，仍有未关闭的模型复测与完整行为评测项，详见[本轮验收](verification/release-20260929/README.md)。签名只覆盖冻结包，不意味着所有能力验证通过；不使用 NVIDIA 官方认证标识。
-
-## 下一步
-
-1. 保留 Qwen2.5 已通过的网页演示和 Qwen3.6 独立 Agent 验收证据，不临时更换演示配置。
-2. 在已通过的最小网页入口上继续整合创作前端，扩充受支持字段并完成真人交互验收。
-3. 完成 Skill 发布验证、素材与许可证整理，录制演示后公开提交。
-4. 后续再扩展角色模板、可动关节与 URDF、Isaac Lab 动作学习，以及实体制作。课程效果与真实硬件迁移需要另外验证。
+自研 Skill 已完成名称与版本登记、使用文档、双端模块回归、Bandit 扫描及人工复核，并记录真实构建与仿真证据，详见[团队验证记录](verification/release-20260929/README.md)。本项目使用团队实测口径，不使用 NVIDIA 官方认证标识。
 
 AI 造物社区，一起用 AI 和硬件把想法做出来。

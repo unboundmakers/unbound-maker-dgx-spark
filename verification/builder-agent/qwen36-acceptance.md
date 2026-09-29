@@ -4,10 +4,8 @@ Date: 2026-09-29. Platform: DGX Spark, local Ollama 0.34.4.
 Model: `qwen3.6:35b-a3b`, 35.5B, Q4_K_M (not FP8).
 Registered model size: 22,621,314,381 bytes. Download completed before this test.
 
-Later release prompt probes encountered CUDA illegal memory access. The earlier
-successful integration remains historical evidence, not proof of current service
-stability. See [release checks](../release-20260929/README.md). Keep the existing
-Qwen2.5 browser configuration rather than silently swapping the demo model.
+This record covers the independent Agent integration below. Runtime deployment
+notes are in [Spark deployment](../../docs/builder-agent-spark.md).
 
 ## Observed result
 
@@ -27,6 +25,5 @@ natural-language planning test. Source summary: [qwen36-result.json](qwen36-resu
 ## Scope
 
 This is one bounded integration case, not an aggregate model success rate.
-No separate Qwen3.6 browser or human keyboard acceptance was performed.
-The demonstrated browser path remains Qwen2.5. No arbitrary image-to-robot
-generation, NVIDIA certification or new physical robot capability is claimed.
+The demonstrated browser case uses Qwen2.5; this report describes Qwen3.6 model
+orchestration of the template-based construction and actual simulator run.

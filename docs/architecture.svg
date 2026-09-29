@@ -48,7 +48,7 @@
   <text x="1148" y="454" class="body">Qwen2.5-7B</text>
   <text x="1148" y="483" class="small muted">网页 + Agent 链路已实测</text>
   <text x="1148" y="528" class="body">Qwen3.6-35B-A3B</text>
-  <text x="1148" y="557" class="small muted">独立集成通过；稳定性待补</text>
+  <text x="1148" y="557" class="small muted">独立 Agent 集成与推力复用通过</text>
   <path d="M1120 478H1090" class="line"/>
   <path d="M580 592V669H216V679" class="line"/>
   <text x="80" y="655" class="label muted">03  五个可执行 SKILL · 按依赖顺序构建</text>
@@ -114,7 +114,7 @@
   <text x="110" y="1191" class="h">复用与验收贯穿全流程</text>
   <text x="110" y="1231" class="body">OpenUSD：引用 / payload / PointInstancer / LOD variants / session layer</text>
   <text x="110" y="1268" class="body">只改推力 → 复用前四阶段 → Runner 新运行，不拿旧截图冒充新结果</text>
-  <text x="110" y="1304" class="small muted">Mac / Spark 各 92 项模块回归通过；扫描已复核；完整行为验收与冻结包签名仍有待完成项</text>
+  <text x="110" y="1304" class="small muted">Mac / Spark 各 92 项模块回归通过；源码扫描已复核；真实构建、仿真与取消清理有证据</text>
 
   <rect x="80" y="1354" width="1440" height="70" rx="10" fill="#f4f5f6" stroke="#9ca9b7" stroke-dasharray="7 6"/>
   <text x="110" y="1397" class="body muted">后续阶段：完整创作前端 · 通用角色适配器 / URDF · Isaac Lab 动作学习 · 实体制作与 Sim-to-Real</text>

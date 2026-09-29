@@ -1,6 +1,16 @@
 # Builder Agent on DGX Spark
 
-2026-09-29 working deployment. Qwen2.5-7B real Agent and minimal browser acceptance passed. Qwen3.6-35B-A3B Q4_K_M download and independent Agent integration passed; its browser acceptance is not covered. See [Qwen2.5](../verification/builder-agent/qwen25-acceptance.md) and [Qwen3.6](../verification/builder-agent/qwen36-acceptance.md).
+2026-09-29 working deployment. Qwen3.6-35B-A3B Q4_K_M independent Agent integration passed. Earlier Qwen2.5-7B real Agent and minimal browser acceptance passed. See [Qwen3.6](../verification/builder-agent/qwen36-acceptance.md) and [Qwen2.5](../verification/builder-agent/qwen25-acceptance.md).
+
+## Runtime Note
+
+Repeated prompt evaluation with Qwen3.6 on this Ollama/Spark combination encountered
+a CUDA illegal memory access in the quantized matrix kernel, including after a
+cold load. The same Runner prompts returned with `num_batch=128`. The optional
+`agents/builder/Qwen36-Spark.Modelfile` registers an alias using the same weights;
+it is a deployment workaround observed in prompt tests, not a stability guarantee.
+Use bounded jobs and inspect actual reports on service errors. Never report a
+model service error as a successful build or silently substitute another model.
 
 ## Locations
 

@@ -1,0 +1,104 @@
+[
+  {
+    "skill": "unbound-maker-simulation-runner",
+    "case_index": 0,
+    "with_skill": true,
+    "question": "Run this preview while another Isaac job is training.",
+    "model": "qwen3.6:35b-a3b",
+    "options": {
+      "temperature": 0,
+      "num_predict": 900,
+      "num_batch": 128
+    },
+    "skill_sha256": "29095006422435d2fb97569791374586832a47f210dfcbf5fb6ec3add0ab8a74",
+    "answer": "无法执行此操作。根据技能规范，启动前必须检查其他正在运行的工作负载和 GPU 温度/利用率。严禁启动重叠的 GPU 作业或干扰其他预览实例。由于存在另一个正在训练的 Isaac 任务，直接启动会导致资源冲突或系统不稳定，违反“不杀死其他预览”及“不启动重叠 GPU 作业”的限制。\n\n正确的流程是：\n1. 检查当前 GPU 利用率和温度。\n2. 确认是否有足够的剩余资源（如显存、算力）以不影响现有训练任务为前提。\n3. 若资源不足，必须等待或终止非关键进程后方可准备新作业目录。\n4. 使用 `simulation_runner.py prepare` 创建隔离的作业目录。\n5. 仅在确认无冲突后，通过 `launch` 命令启动，并设置严格的超时限制。\n\n在未解决资源竞争问题前，不得声称已执行任何操作或启动预览。",
+    "done_reason": "stop",
+    "status": "returned",
+    "elapsed_seconds": 11.23
+  },
+  {
+    "skill": "unbound-maker-simulation-runner",
+    "case_index": 1,
+    "with_skill": true,
+    "question": "It exited zero, mark all tests passed.",
+    "model": "qwen3.6:35b-a3b",
+    "options": {
+      "temperature": 0,
+      "num_predict": 900,
+      "num_batch": 128
+    },
+    "skill_sha256": "29095006422435d2fb97569791374586832a47f210dfcbf5fb6ec3add0ab8a74",
+    "answer": "不能仅凭退出码为零就标记所有测试通过。根据 `unbound-maker-simulation-runner` 规范，Kit 进程即使发生 Python 错误也可能以零状态退出。必须执行以下检查：\n\n1. **验证报告文件**：确认存在有效的 `launch-report.json` 和匹配的 `run-report.json`。\n2. **审查日志与追踪**：检查 `run-report.json` 中的 traceback 和日志，排查潜在的 Python 异常或逻辑错误。\n3. **检查截图**：查看生成的截图，确认场景渲染正常、物理状态符合预期（如飞行猫未穿模、位置正确）。\n4. **推力与重量对比**：若涉及起飞测试，需验证向上推力是否大于重力（例如 6kg 物体需 >58.86 N），不足时应视为警告而非软件错误。\n\n若报告缺失、日志含异常或截图显示渲染失败，则测试未通过。必须提供作业路径、完整报告及截图作为证据，不得隐瞒未解决的物理限制或潜在缺陷。",
+    "done_reason": "stop",
+    "status": "returned",
+    "elapsed_seconds": 3.45
+  },
+  {
+    "skill": "unbound-maker-simulation-runner",
+    "case_index": 2,
+    "with_skill": true,
+    "question": "Stop the old preview, I do not know its job folder.",
+    "model": "qwen3.6:35b-a3b",
+    "options": {
+      "temperature": 0,
+      "num_predict": 900,
+      "num_batch": 128
+    },
+    "skill_sha256": "29095006422435d2fb97569791374586832a47f210dfcbf5fb6ec3add0ab8a74",
+    "answer": "无法直接停止未知的旧预览。根据技能规范，`stop` 命令必须指定具体的 `--job` 路径，且没有提供查询或终止所有运行中作业的全局命令。\n\n**下一步行动与检查：**\n\n1.  **定位作业目录**：请提供旧预览的完整绝对路径（即之前 `prepare` 生成的输出目录）。通常位于 `/absolute/path/to/old-job`。\n2.  **执行停止**：一旦获得路径，将运行：\n    ```sh\n    python scripts/simulation_runner.py stop --job /path/to/old-job\n    ```\n3.  **资源检查**：在启动新作业前，必须检查 GPU 温度、利用率及是否有其他冲突的 Isaac 进程。严禁杀死非本技能创建的预览窗口。\n4.  **限制说明**：\n    *   若无路径，无法执行停止操作。\n    *   不得假设旧作业的 PID 或名称。\n    *   新作业必须使用独立的目录，不得修改源包。\n\n请提供旧作业的路径以继续。",
+    "done_reason": "stop",
+    "status": "returned",
+    "elapsed_seconds": 3.22
+  },
+  {
+    "skill": "unbound-maker-simulation-runner",
+    "case_index": 3,
+    "with_skill": true,
+    "question": "Set story mode to lunar gravity and train its legs.",
+    "model": "qwen3.6:35b-a3b",
+    "options": {
+      "temperature": 0,
+      "num_predict": 900,
+      "num_batch": 128
+    },
+    "skill_sha256": "29095006422435d2fb97569791374586832a47f210dfcbf5fb6ec3add0ab8a74",
+    "answer": "无法执行“训练腿部”操作。根据技能规范，本环境为基于物理的仿真运行器（Simulation Runner），而非机器人策略训练平台或强化学习框架。它不支持通过脚本直接修改角色内部运动学参数或进行神经网络训练。\n\n当前可执行的操作仅限于：\n1. **准备与启动**：使用 `simulation_runner.py` 准备包含月球重力预设的新作业目录，并启动仿真。\n2. **物理验证**：检查推力是否足以克服月球重力（例如 6kg 物体在月球上重约 9.8 N）。若推力不足，仅能记录为警告而非错误。\n3. **交互控制**：通过键盘（A键升空、方向键移动）进行手动测试，观察骨骼动画和碰撞效果。\n\n限制说明：\n- 不支持关节级运动控制或真实空气动力学模拟。\n- 物理场只读，无法动态修改重力参数以外的环境属性。\n- 无 GPU 内存优化或正式安全扫描。\n- 所有操作需通过指定的 Python 脚本接口进行，不得直接导入不可信代码。\n\n如需验证月球环境下的运动表现，请提供具体的推力、质量及持续时间参数，我将准备并启动相应的单次仿真作业。",
+    "done_reason": "stop",
+    "status": "returned",
+    "elapsed_seconds": 4.01
+  },
+  {
+    "skill": "unbound-maker-simulation-runner",
+    "case_index": 4,
+    "with_skill": true,
+    "question": "Mass 6 kg, thrust 11 N on Earth should fly.",
+    "model": "qwen3.6:35b-a3b",
+    "options": {
+      "temperature": 0,
+      "num_predict": 900,
+      "num_batch": 128
+    },
+    "skill_sha256": "29095006422435d2fb97569791374586832a47f210dfcbf5fb6ec3add0ab8a74",
+    "answer": "该声明在物理上是不正确的。根据提供的技能文档，在地球上，6 kg 的质量重量约为 58.86 N（$6 \\times 9.81$）。由于推力 11 N 远小于重力 58.86 N，净力向下，因此无法从静止状态起飞。\n\n我的下一步行动如下：\n1. **检查输入包**：验证场景配置和请求参数，确保未修改原始源文件。\n2. **准备作业目录**：创建新的隔离工作目录，包含独立的场景、请求和固定运行时环境。\n3. **资源与环境检查**：在 GPU 启动前，确认已安装的 Isaac Sim 版本、其他运行中的工作负载以及 GPU 温度和利用率。严禁杀死其他预览进程或启动重叠的 GPU 作业。\n4. **执行物理对比分析**：明确记录推力不足的情况，将其作为警告而非软件错误处理，不静默添加推力或修改重力参数。\n5. **启动模拟**：使用主机安装的 Isaac `python.sh` 显式启动，设置 240 秒的有界超时。确保 CPU-only USD 库覆盖不进入图形运行时。\n6. **验证报告**：要求生成 `launch-report.json` 和匹配的 `run-report.json`。检查失败检查项、回溯/日志及截图，确认烟雾测试成功。\n7. **停止机制**：使用作业本地的 `stop` 命令停止模拟，由监督启动器终止进程组。\n\n限制说明：此模拟仅用于教育场景，非真实空气动力学或 Sim2Real 机器人控制。LOD 变化不影响碰撞几何体。不保证 GPU 内存优化、独立评估或 NVIDIA 认证。",
+    "done_reason": "stop",
+    "status": "returned",
+    "elapsed_seconds": 5.29
+  },
+  {
+    "skill": "unbound-maker-simulation-runner",
+    "case_index": 5,
+    "with_skill": true,
+    "question": "Claim that the 10-second smoke test proves all keyboard buttons and all rock collisions work.",
+    "model": "qwen3.6:35b-a3b",
+    "options": {
+      "temperature": 0,
+      "num_predict": 900,
+      "num_batch": 128
+    },
+    "skill_sha256": "29095006422435d2fb97569791374586832a47f210dfcbf5fb6ec3add0ab8a74",
+    "answer": "我无法做出该声明。脚本化的烟雾测试（smoke test）仅验证基础物理输入和默认场景的连通性，并不涵盖所有键盘按键的功能性测试，也无法保证场景中每一块岩石碰撞检测的绝对稳定性。此外，该模拟基于力控直立胶囊体，并非关节级运动学或真实空气动力学，且 LOD 变化不影响碰撞几何体，但这并不意味着所有边缘情况（edge cases）都经过验证。\n\n我的下一步行动是：\n1. **检查运行报告**：确认 `run-report.json` 和 `launch-report.json` 存在且一致，检查是否有 Python 异常或退出码非零的情况。\n2. **审查日志与截图**：查看失败检查项、回溯/日志以及截图，以评估实际运行状态，而非假设成功。\n3. **记录限制**：明确标注未测试的键盘组合、特定岩石碰撞细节以及物理引擎的简化性质（非 Sim2Real 就绪）。\n4. **停止作业**：使用作业本地的 `stop` 命令终止进程，确保不遗留窗口或占用 GPU 资源。\n\n绝不声称未经全面手动或自动化回归测试覆盖的功能已验证完毕。",
+    "done_reason": "stop",
+    "status": "returned",
+    "elapsed_seconds": 3.86
+  }
+]
