@@ -1,0 +1,9 @@
+{
+  "name": "unbound-maker-preview",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Local preview harness for the Spark builder web UI (stub API, no Spark needed)",
+  "scripts": {
+    "dev": "node server.js"
+  }
+}
