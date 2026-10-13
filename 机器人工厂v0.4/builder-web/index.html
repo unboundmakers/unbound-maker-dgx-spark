@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI造物·青少年机器人创作平台 · Spark 构建台</title><link rel="stylesheet" href="/ui/style.css"></head>
+<body>
+<header><div><span class="eyebrow">UNBOUND MAKER / DGX SPARK</span><h1>把想法放进小世界</h1></div><div class="header-side"><div class="mode-switch" role="tablist" aria-label="界面模式"><button id="mode-kid" type="button" role="tab">🧒 孩子模式</button><button id="mode-engineer" type="button" role="tab" class="on" aria-selected="true">🛠 工程师模式</button></div><span class="chip">本机联调 · 非实时串流</span></div></header>
+<section id="kid-view" hidden><div class="kid-board"><iframe id="factory" title="小小机器人工厂（孩子模式）" src="/factory"></iframe><div class="kid-bar" role="group" aria-label="告诉工厂你想造什么"><button id="kid-voice" class="entry voice" type="button" aria-pressed="false"><span class="ico"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11.5a6.5 6.5 0 0 0 13 0M12 18v3M8.5 21h7"/></svg></span><span class="lbl">说出来</span></button><button id="kid-draw" class="entry draw" type="button"><span class="ico"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8.5A1.5 1.5 0 0 1 5.5 7h2.2l1.3-2h6l1.3 2h2.2A1.5 1.5 0 0 1 20 8.5v9a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 4 17.5z"/><circle cx="12" cy="13" r="3.4"/></svg></span><span class="lbl">画给它看</span></button><form id="kid-text-form" class="kid-text" autocomplete="off"><label class="sr" for="kid-text">打字告诉工厂</label><input id="kid-text" maxlength="200" placeholder="打字也行：我想要一只…"><button type="submit" aria-label="发出这句话">→</button></form><button id="kid-send" class="entry send" type="button"><span class="ico" aria-hidden="true">🚀</span><span class="lbl">送去工厂真正造出来</span></button></div><p id="kid-toast" class="kid-toast" role="status" hidden></p><input id="kid-file" type="file" accept="image/*" hidden></div><p class="muted kid-tip">说一句话、画一张画，或者动手拼零件。真的会造出机身颜色和场景；翅膀、表情、性格、口头禅和电量暂时只在这个游戏里。</p></section>
+<main>
+<section class="concept card"><div class="section-head"><h2>孩子送来的作品</h2><span class="small">孩子模式 → 真实构建</span></div>
+<p class="muted" id="order-empty">还没有作品送来。切到「🧒 孩子模式」，孩子说一句话、画一张画，或动手拼一个。</p>
+<div id="kid-order" class="kid-order" hidden><div class="order-fig" id="kid-order-fig"></div><div class="order-info"><p id="kid-order-text" class="small"></p><details><summary>原始配置（未映射的部分不会真的造出来）</summary><pre id="kid-order-raw"></pre></details></div></div></section>
+<section class="builder card"><div class="section-head"><h2>Spark 构建与验证</h2><span id="model" class="small">尚未连接</span></div>
+<details id="connection" open><summary>连接本机服务</summary><label for="token">访问令牌</label><div class="connect-row"><input id="token" type="password" autocomplete="off" spellcheck="false" placeholder="只保存在当前页面内存中"><button id="connect" type="button">连接</button></div></details>
+<p id="connection-status" role="status" class="muted">需要已启动的 Spark 服务与 SSH 隧道。不会上传到云端。</p>
+<p class="muted"><span id="color-swatch" class="swatch" hidden role="img" aria-label="已采用的机身颜色"></span><span id="import-note">孩子的作品会显示在左侧；只有机身颜色和场景会进入真实构建。</span></p>
+<form id="build-form"><fieldset id="controls" disabled>
+<div class="fields"><div><label for="scene">起始场景</label><select id="scene"><option value="moon">月球探索 · 实验模式</option><option value="meadow">草地 · 故事模式</option><option value="space">太阳系 · 故事模式</option></select></div><div><label for="scale">角色比例（0.5–2）</label><input id="scale" type="number" min="0.5" max="2" step="0.1" value="1" required></div></div>
+<label for="instruction">你想怎么改？</label><textarea id="instruction" rows="5" maxlength="8000" required>把飞行猫身体改成蓝色 #2867D7。在月球实验场景，质量 2kg，向上推力 7N，默认自然表情，运行 10 秒无窗口测试。</textarea>
+<p class="counter"><span id="instruction-count">0</span>/8000</p>
+<p class="muted">当前只支持飞行猫模板、机身色和整体缩放；月球可调整重力、质量、推力。未知能力会返回提示，不自动编造。</p>
+<button id="build" type="submit" class="primary">让 Qwen 构建并验证</button>
+</fieldset></form>
+<div class="taskbar"><strong id="status" role="status" aria-live="polite">准备开始</strong><span id="elapsed" class="small" aria-hidden="true"></span><button id="cancel" type="button" class="danger" disabled>取消任务</button><button id="refresh" type="button" class="secondary" disabled>重新查询</button></div>
+<p class="small" id="updated"></p>
+<p id="job-id" class="small"></p><ol id="stages" class="stages"><li data-stage="asset">角色资产<span>等待</span></li><li data-stage="personality">表情与头部<span>等待</span></li><li data-stage="scene">场景整合<span>等待</span></li><li data-stage="optimizer">场景优化<span>等待</span></li><li data-stage="runner">真实仿真<span>等待</span></li></ol>
+<p id="error" role="alert" hidden></p>
+</section>
+<section id="result" class="card result" hidden><div class="section-head"><h2>这次真正运行出来的结果</h2><span id="result-model" class="small"></span></div>
+<div class="result-grid"><figure><img id="preview" alt="本次任务生成的 Isaac Sim 截图"><figcaption>实际运行截图，不是浏览器内实时控制。</figcaption></figure><div><h3>运行检查</h3><p id="checks"></p><div class="actions"><button id="report" class="secondary">下载运行报告</button><button id="bundle" class="secondary">本机下载场景包</button></div><p class="muted">场景包含受保护角色和第三方资产，仅供授权的本机使用，不要上传公开仓库。</p><details><summary>查看实际应用参数</summary><pre id="design"></pre></details><label for="thrust">只修改推力（N，月球实验）</label><div class="connect-row"><input id="thrust" type="number" min="0" max="50" step="0.5" value="11"><button id="rerun">按参数重跑</button></div><p class="muted">此按钮走结构化参数修改，复用已验证资产，不算第二次模型对话。</p></div></div></section>
+</main><footer>AI 造物社区，一起用 AI 和硬件把想法做出来。<span>故事可以自由想象，实验如实展示结果。</span></footer>
+<div id="handoff" class="handoff" hidden><span class="plane" aria-hidden="true">🚀</span><p>送去工厂咯！</p></div>
+<div id="ceremony" class="ceremony" hidden>
+<canvas id="confetti" aria-hidden="true"></canvas>
+<div class="polaroid" role="dialog" aria-label="建造成功的见面仪式">
+<img id="ceremony-img" alt="机器人伙伴的第一张真实运行照片">
+<p class="caption" id="ceremony-caption">它真的动起来啦！🎉</p>
+<p class="sub" id="ceremony-checks"></p>
+<div class="ceremony-actions"><button id="ceremony-again" type="button" class="secondary">再造一个</button><button id="ceremony-close" type="button" class="primary">看看建造细节</button></div>
+</div></div>
+<script type="module" src="/ui/app.js"></script></body></html>
