@@ -1,36 +1,35 @@
-# 授权范围 / License Scope
+# License Scope / 授权范围
 
-本项目采用分项授权。根目录 `LICENSE` 不自动适用于仓库中所有内容。
-以下授权仅涉及贡献者有权授予的权利；保留各文件已有的第三方声明。
+## Code
 
-## 1. 自研代码：Apache-2.0
+The selected code in `examples/json_contract.py` is derived from the existing
+Unbound Maker Builder and remains under [Apache-2.0](LICENSE). The extraction
+and retained scope are identified in the source file.
 
-除另有声明外，`agents/`、`skills/` 和 `tools/` 中自研的 Python、Shell、HTML、CSS、JavaScript、测试代码，以及运行所需的 JSON/YAML 配置、示例请求和依赖清单，适用 [Apache License 2.0](LICENSE)。允许按协议使用、修改、分发及商业使用。
+## Documentation
 
-Markdown 中为说明 API 或部署而提供的代码示例也按 Apache-2.0 提供。第三方库、SDK 和模型权重不因被本项目调用而改变其许可。
+Project-authored documentation remains under
+[CC BY 4.0](LICENSES/CC-BY-4.0.txt). Attribution:
+`Unbound Maker contributors`, with a link to
+[the project](https://github.com/unboundmakers/unbound-maker-dgx-spark).
+Retain the license link and identify modifications when required by the license.
 
-## 2. 自研文档和 Skill 说明：CC BY 4.0
+## Character and Demonstration Images
 
-除另有声明外，README、SUBMISSION、`docs/`、`SKILL.md`、Skill Card、BENCHMARK、references 中由本项目编写的文字，以及验证摘要的文字说明，适用 [Creative Commons Attribution 4.0 International](LICENSES/CC-BY-4.0.txt)。允许按协议分享、改编及商业使用，需保留署名、许可链接并说明修改。
+The FlyingCat character and images in `media/` retain their separate rights
+and are not covered by the default code or documentation licenses. The project
+has permission to display them; this does not grant third parties character,
+model, or image reuse rights. Third-party scene elements keep their own terms.
 
-推荐署名：`Unbound Maker contributors · AI造物·青少年机器人创作平台`，附上[项目链接](https://github.com/unboundmakers/unbound-maker-dgx-spark)。这不代表原作者或团队为衍生作品背书。
+## Existing Versions
 
-## 3. 角色与演示图像不在以上开放授权内
+This scope identifies the files in this edition. It does not revoke or narrow
+permissions already granted for earlier versions or third-party materials.
 
-飞行猫角色的原画、模型、贴图、角色专用生成数据，以及截图或视频中体现的角色形象，不由本项目的 Apache-2.0 或 CC BY 4.0 授予复用权。原权利人保留其权利，法律规定的例外不受影响。项目负责人已确认本项目展示授权；此确认不等于向第三方转授角色使用权。
+## 中文说明
 
-`verification/` 内的图片和视频用于展示测试结果，**不适用文档的 CC BY 4.0 默认授权**。其中的角色和第三方场景元素仍受各自权利约束。根目录和文档中引用这些图片，也不改变该范围。
+精选代码沿用 Apache-2.0；项目原创文档沿用 CC BY 4.0。飞行喵角色及 `media/`
+演示图像保留独立权利，不适用上述默认授权。第三方素材遵循原有条款。
+本文件不撤回或缩小此前版本已授予的权利。
 
-`docs/essay-images/` 中的招募海报、孩子原画和仿真截图由项目负责人提供并授权用于本项目征文展示，同样不适用文档的 CC BY 4.0 默认授权，不向第三方转授角色或图像的复用权。
-
-公开源码不得携带 `flyingcat-v1.usdc`、含该角色的完整构建包或其他未获再分发许可的角色源文件。通用构建、参数处理和运行代码仍按第 1 节开放，不因支持角色接口而一律禁止商业使用。
-
-## 4. 第三方资产与依赖
-
-NASA、Poly Haven、NVIDIA 和其他来源的素材按各自条款使用，详见 [第三方来源说明](THIRD_PARTY_NOTICES.md)。资产目录或 manifest 中出现文件名、哈希与来源，不表示原文件随源码分发，也不构成新的许可。
-
-商标、品牌标识和个人信息不因代码或文档开放而获得额外使用授权。标准许可证原文保持不变；本文件只说明哪些材料采用哪一种授权。
-
-## 5. 复现边界
-
-本版运行依赖授权角色模板和本地场景资产。去除这些源资产后，公开源码不是下载即用的完整演示。需要另行取得许可并准备匹配模板；尚未提供可自由再分发的通用替代角色。我们不会用开源声明掩盖这个限制。
+See [NOTICE](NOTICE) and [third-party credits](THIRD_PARTY_NOTICES.md).
