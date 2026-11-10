@@ -1,4 +1,0 @@
-# Local CPU-only USD checks. On Spark reuse its compatible Isaac USD environment.
-usd-core==25.5.1
-PyYAML==6.0.3
-
